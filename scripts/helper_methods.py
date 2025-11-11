@@ -178,7 +178,7 @@ def start_client_and_login():
     elif os.name == 'nt':  # Windows
         os.system("start C:/Users/shavk/AppData/Roaming/GGPCOM/bin/launcher.exe")
 
-    time.sleep(5)
+    time.sleep(15)
 
     if not check_if_client_running():
         print("Client is not running!")

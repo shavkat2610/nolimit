@@ -158,6 +158,7 @@ def check_if_client_running(waiting = True):
             print("GGPoker client is running.")
             return True
         time.sleep(.5)
+        print("I was here 23")
         clint_pos = imagesearch('images/GG_icon1.png', precision=0.95)
         if clint_pos != [-1, -1]:
             print('Client position found at: ', clint_pos)

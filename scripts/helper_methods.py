@@ -43,7 +43,8 @@ the top left corner coordinates of the element if found as an array [x,y] or [-1
 '''
 def imagesearch(image, precision=0.8):
     im = pyautogui.screenshot(region=(0, 0, 1300, 750))
-    im.save('testarea3.png') # useful for debugging purposes, this will save the captured region as "testarea.png"
+    secs = time.time()
+    im.save('testarea3.{secs}.png') # useful for debugging purposes, this will save the captured region as "testarea.png"
     img_rgb = np.array(im)
     img_gray = cv2.cvtColor(img_rgb, cv2.COLOR_BGR2GRAY)
     template = cv2.imread(image, 0)
@@ -158,8 +159,8 @@ def check_if_client_running(waiting = True):
             print("GGPoker client is running.")
             return True
         time.sleep(.5)
-        print("I was here 23")
         clint_pos = imagesearch('images/GG_icon1.png', precision=0.95)
+        print(clint_pos)
         if clint_pos != [-1, -1]:
             print('Client position found at: ', clint_pos)
             if clint_pos != (100, 100):

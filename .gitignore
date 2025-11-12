@@ -9,4 +9,4 @@ model*
 *.pyc
 testarea*
 __pycache__/*
-*/__pycache__
+secrets1/__pycache__

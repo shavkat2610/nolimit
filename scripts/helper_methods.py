@@ -48,7 +48,7 @@ def imagesearch(image, precision=0.7):
     # im.save(f'testarea3{secs}.png') # useful for debugging purposes, this will save the captured region as "testarea.png"
     img_rgb = np.array(im)
     img_gray = cv2.cvtColor(img_rgb, cv2.COLOR_BGR2GRAY)
-    template = cv2.imread(image, 0)
+    template = cv2.imread(image, 1)
     plt.imshow(img_rgb, interpolation='nearest')
     plt.show()
     plt.imshow(template, interpolation='nearest')

@@ -57,7 +57,7 @@ def imagesearch(image, precision=0.7):
     template = cv2.cvtColor(template, cv2.COLOR_BGR2RGB)
     try:
         coordinates = pyautogui.locate(template, img_rgb, confidence=0.999)
-        print(coordinates)
+        print(coordinates[0])
         return coordinates
     except:
         print('Image not found')

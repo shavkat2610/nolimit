@@ -42,7 +42,7 @@ returns :
 the top left corner coordinates of the element if found as an array [x,y] or [-1,-1] if not
 
 '''
-def imagesearch(image, precision=0.8):
+def imagesearch(image, precision=0.7):
     im = pyautogui.screenshot(region=(0, 0, 1300, 750))
     secs = time.time()
     im.save(f'testarea3{secs}.png') # useful for debugging purposes, this will save the captured region as "testarea.png"
@@ -64,7 +64,7 @@ def imagesearch(image, precision=0.8):
     print('-----------#####-----------------------------')
     print(template[0].shape)
     print('-----------#####-----------------------------')
-    res = cv2.matchTemplate(img_gray, template, cv2.TM_CCOEFF_NORMED)
+    res = cv2.matchTemplate(img_rgb, template, cv2.TM_CCOEFF_NORMED)
     min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
     if max_val < precision:
         return [-1, -1]

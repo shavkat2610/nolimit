@@ -45,7 +45,8 @@ the top left corner coordinates of the element if found as an array [x,y] or [-1
 def imagesearch(image, precision=0.7):
     im = pyautogui.screenshot(region=(0, 0, 900, 650))
     secs = time.time()
-    im2 = pyautogui.screenshot(region=(7, 33, 79, 85))
+    im2 = pyautogui.screenshot(region=(10, 40, 50, 50))
+    im2.save('upper_corner.png')
     # im.save(f'testarea7_{secs}.png') # useful for debugging purposes, this will save the captured region as "testarea.png"
     img_rgb = np.array(im)
     img2_rgb = np.array(im2)
@@ -61,7 +62,7 @@ def imagesearch(image, precision=0.7):
     plt.show()
     plt.imshow(template, interpolation='nearest')
     plt.show()
-    template = cv2.cvtColor(template, cv2.COLOR_BGR2GRAY)
+    template = cv2.cvtColor(template, cv2.COLOR_RGB2GRAY)
     print('---------------------------------------------- HERE WE GO ----------------------------')
     print('was here 3000 years ago')
     img_rgb.shape[::-1]

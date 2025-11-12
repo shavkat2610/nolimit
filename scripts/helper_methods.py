@@ -43,7 +43,7 @@ the top left corner coordinates of the element if found as an array [x,y] or [-1
 
 '''
 def imagesearch(image, precision=0.7):
-    im = pyautogui.screenshot(region=(0, 0, 900, 650))
+    im = pyautogui.screenshot(region=(0, 0, 1200, 750))
     secs = time.time()
     # im2 = pyautogui.screenshot(region=(8, 32, 50, 50))
     # im2.save('temp.png')
@@ -57,7 +57,7 @@ def imagesearch(image, precision=0.7):
         coordinates = pyautogui.locate(template, img_rgb, confidence=0.999)
         return (coordinates[0].__int__(), coordinates[1].__int__())
     except:
-        print('Image not found')
+        print('Image not found at first glance')
     # plt.imshow(img2_rgb, interpolation='nearest')
     # plt.show()
     plt.imshow(template, interpolation='nearest')
@@ -77,6 +77,7 @@ def imagesearch(image, precision=0.7):
     min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
     if max_val < precision:
         return [-1, -1]
+    print('found at '+str(max_val))
     return max_loc
 
 

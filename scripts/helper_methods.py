@@ -50,6 +50,8 @@ def imagesearch(image, precision=0.7):
     
     img_gray = cv2.cvtColor(img_rgb, cv2.COLOR_RGB2GRAY)
     template = cv2.imread(image, 0)
+    coordinates = pyautogui.locateOnScreen(template)
+    print(coordinates)
     plt.imshow(img_rgb, interpolation='nearest')
     plt.show()
     plt.imshow(template, interpolation='nearest')

@@ -6,7 +6,7 @@ vitadrom
 jena_climate_2009_2016.csv
 testarea3.png
 model*
-*pyc
+*.pyc
 testarea*
 __pycache__/*
 */__pycache__

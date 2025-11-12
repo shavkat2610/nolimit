@@ -50,6 +50,7 @@ def imagesearch(image, precision=0.8):
     template = cv2.imread(image, 0)
     print('was here 3000 years ago')
     print(img_gray)
+    print('-----------#####-----------------------------')
     print(template.shape[::-1])
     res = cv2.matchTemplate(img_gray, template, cv2.TM_CCOEFF_NORMED)
     min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)

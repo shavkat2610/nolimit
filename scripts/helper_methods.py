@@ -48,7 +48,9 @@ def imagesearch(image, precision=0.8):
     img_rgb = np.array(im)
     img_gray = cv2.cvtColor(img_rgb, cv2.COLOR_BGR2GRAY)
     template = cv2.imread(image, 0)
-    template.shape[::-1]
+    print('was here 3000 years ago')
+    print(img_gray)
+    print(template.shape[::-1])
     res = cv2.matchTemplate(img_gray, template, cv2.TM_CCOEFF_NORMED)
     min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
     if max_val < precision:
@@ -146,7 +148,7 @@ def login():
 
 
 def check_if_client_running(waiting = True):
-    print("Checking if GGPoker client is running...")
+    print("Checking if GGPoker client is running... waiting = "+str(waiting))
     gg_icon = Image.open('images/GG_icon1.png')
     if compare_img_screenshot(gg_icon,(100, 100)):
         # best & normal case scenario, the client is already running and focused

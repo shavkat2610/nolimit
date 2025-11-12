@@ -176,8 +176,8 @@ def check_if_client_running(waiting = True):
         print("GGPoker client is running.")
         return True
     global clint_pos
-    for _ in range(10 if waiting else 1):
-        time.sleep(1.5)
+    for _ in range(7 if waiting else 1):
+        time.sleep(3.5)
         if compare_img_screenshot(gg_icon,(100, 100)):
             print("GGPoker client is running.")
             return True
@@ -203,7 +203,7 @@ def start_client_and_login():
     elif os.name == 'nt':  # Windows
         os.system("start C:/Users/shavk/AppData/Roaming/GGPCOM/bin/launcher.exe")
 
-    time.sleep(15)
+    time.sleep(5)
 
     if not check_if_client_running():
         print("Client is not running!")

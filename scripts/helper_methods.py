@@ -49,7 +49,8 @@ def imagesearch(image, precision=0.7):
     img_rgb = np.array(im)
     
     img_gray = cv2.cvtColor(img_rgb, cv2.COLOR_RGB2GRAY)
-    template = cv2.imread(image, 0)
+    template = cv2.imread(image, 1)
+    template = cv2.cvtColor(template, cv2.COLOR_BGR2RGB)
     try:
         coordinates = pyautogui.locateOnScreen(template)
         print(coordinates)
@@ -59,6 +60,7 @@ def imagesearch(image, precision=0.7):
     plt.show()
     plt.imshow(template, interpolation='nearest')
     plt.show()
+    template = cv2.cvtColor(template, cv2.COLOR_BGR2GRAY)
     print('---------------------------------------------- HERE WE GO ----------------------------')
     print('was here 3000 years ago')
     img_rgb.shape[::-1]

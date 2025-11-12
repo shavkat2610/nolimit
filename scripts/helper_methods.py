@@ -171,7 +171,7 @@ def login():
 
 def check_if_client_running(waiting = True):
     print("Checking if GGPoker client is running... waiting = "+str(waiting))
-    gg_icon = Image.open('images/GG_icon1.png')
+    gg_icon = Image.open('images/GG_icon3.png')
     if compare_img_screenshot(gg_icon,(100, 100)):
         # best & normal case scenario, the client is already running and focused
         print("GGPoker client is running.")
@@ -183,7 +183,7 @@ def check_if_client_running(waiting = True):
             print("GGPoker client is running.")
             return True
         time.sleep(.5)
-        clint_pos = imagesearch('images/GG_icon1.png', precision=0.75)
+        clint_pos = imagesearch('images/GG_icon3.png', precision=0.75)
         print(clint_pos)
         if clint_pos != [-1, -1]:
             print('Client position found at: ', clint_pos)

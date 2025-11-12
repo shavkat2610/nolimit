@@ -11,7 +11,7 @@ from matplotlib import pyplot as plt
 
 
 clint_pos = [-1, -1] # (50, 31)
-def_clint = [100, 100]
+def_clint = [8, 32]
 
 
 # up to am max of 10
@@ -19,10 +19,12 @@ def compare_img_screenshot(im,pos):
     width, height = im.size
     im2 = pyautogui.screenshot(region=(pos[0], pos[1], width, height))
     # im2.show()
+    
     for i in range(0, min(width, max(25, width))):
         for j in range(0, min(height, max(25, height))):
             if (int(im.getpixel((i,j))[0] - im2.getpixel((i,j))[0])!=0):
                 return False
+    print('compare img successful')
     return True
 
 
@@ -46,7 +48,7 @@ def imagesearch(image, precision=0.7):
     im = pyautogui.screenshot(region=(0, 0, 900, 650))
     secs = time.time()
     im2 = pyautogui.screenshot(region=(8, 32, 50, 50))
-    im2.save('temp.png')
+    # im2.save('temp.png')
     # im.save(f'testarea7_{secs}.png') # useful for debugging purposes, this will save the captured region as "testarea.png"
     img_rgb = np.array(im)
     img2_rgb = np.array(im2)
@@ -54,7 +56,7 @@ def imagesearch(image, precision=0.7):
     template = cv2.imread(image, 1)
     template = cv2.cvtColor(template, cv2.COLOR_BGR2RGB)
     try:
-        coordinates = pyautogui.locate(template, img_rgb, confidence=0.85)
+        coordinates = pyautogui.locate(template, img_rgb, confidence=0.999)
         print(coordinates)
     except:
         print('Image not found')

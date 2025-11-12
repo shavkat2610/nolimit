@@ -7,6 +7,7 @@ from PIL import Image
 import random
 from matplotlib.pyplot import imshow
 from secrets1.secret import password, email
+from matplotlib import pyplot as plt
 
 
 clint_pos = [-1, -1] # (50, 31)
@@ -48,6 +49,10 @@ def imagesearch(image, precision=0.8):
     img_rgb = np.array(im)
     img_gray = cv2.cvtColor(img_rgb, cv2.COLOR_BGR2GRAY)
     template = cv2.imread(image, 0)
+    plt.imshow(img_gray, interpolation='nearest')
+    plt.show()
+    plt.imshow(template, interpolation='nearest')
+    plt.show()
     print('was here 3000 years ago')
     print(img_gray.shape[::-1])
     print('-----------#####-----------------------------')

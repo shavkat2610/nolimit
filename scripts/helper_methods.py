@@ -58,6 +58,7 @@ def imagesearch(image, precision=0.7):
     try:
         coordinates = pyautogui.locate(template, img_rgb, confidence=0.999)
         print(coordinates)
+        return coordinates
     except:
         print('Image not found')
     plt.imshow(img2_rgb, interpolation='nearest')

@@ -53,6 +53,8 @@ def imagesearch(image, precision=0.8):
     plt.show()
     plt.imshow(template, interpolation='nearest')
     plt.show()
+    print('---------------------------------------------- HERE WE GO ----------------------------')
+    print(itemindex = np.where(img_gray == template))
     print('was here 3000 years ago')
     print(img_gray.shape[::-1])
     print('-----------#####-----------------------------')

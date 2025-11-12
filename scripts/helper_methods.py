@@ -10,8 +10,7 @@ from secrets1.secret import password, email
 from matplotlib import pyplot as plt
 
 
-clint_pos = [-1, -1] # (50, 31)
-def_clint = [8, 32]
+def_clint = (70, 70)
 
 
 # up to am max of 10
@@ -19,7 +18,6 @@ def compare_img_screenshot(im,pos):
     width, height = im.size
     im2 = pyautogui.screenshot(region=(pos[0], pos[1], width, height))
     # im2.show()
-    
     for i in range(0, min(width, max(25, width))):
         for j in range(0, min(height, max(25, height))):
             if (int(im.getpixel((i,j))[0] - im2.getpixel((i,j))[0])!=0):
@@ -47,22 +45,21 @@ the top left corner coordinates of the element if found as an array [x,y] or [-1
 def imagesearch(image, precision=0.7):
     im = pyautogui.screenshot(region=(0, 0, 900, 650))
     secs = time.time()
-    im2 = pyautogui.screenshot(region=(8, 32, 50, 50))
+    # im2 = pyautogui.screenshot(region=(8, 32, 50, 50))
     # im2.save('temp.png')
     # im.save(f'testarea7_{secs}.png') # useful for debugging purposes, this will save the captured region as "testarea.png"
     img_rgb = np.array(im)
-    img2_rgb = np.array(im2)
+    # img2_rgb = np.array(im2)
     img_gray = cv2.cvtColor(img_rgb, cv2.COLOR_RGB2GRAY)
     template = cv2.imread(image, 1)
     template = cv2.cvtColor(template, cv2.COLOR_BGR2RGB)
     try:
         coordinates = pyautogui.locate(template, img_rgb, confidence=0.999)
-        print(coordinates[0])
-        return coordinates
+        return (coordinates[0].__int__(), coordinates[1].__int__())
     except:
         print('Image not found')
-    plt.imshow(img2_rgb, interpolation='nearest')
-    plt.show()
+    # plt.imshow(img2_rgb, interpolation='nearest')
+    # plt.show()
     plt.imshow(template, interpolation='nearest')
     plt.show()
     template = cv2.cvtColor(template, cv2.COLOR_RGB2GRAY)
@@ -86,7 +83,7 @@ def imagesearch(image, precision=0.7):
 
 
 def reset_client_window():
-    global clint_pos
+    clint_pos = imagesearch('images/GG_icon3.png', precision=0.75)
     if clint_pos != [-1, -1]:
         if clint_pos == def_clint:
             return
@@ -94,8 +91,10 @@ def reset_client_window():
         pyautogui.moveTo(clint_pos[0], clint_pos[1])
         time.sleep(.5)
         pyautogui.mouseDown()
+        pyautogui.dragTo(x=def_clint[0]+300, y=def_clint[1]+200, duration=1.0, button='left')
         time.sleep(.5)
-        pyautogui.dragTo(x=def_clint[0], y=def_clint[1], duration=2.0, button='left')
+        pyautogui.dragTo(x=def_clint[0], y=def_clint[1], duration=1.0, button='left')
+        clint_pos = def_clint
         time.sleep(.5)
         pyautogui.mouseUp()
         time.sleep(.5)
@@ -105,11 +104,10 @@ def reset_client_window():
 
 
 def find_login_button_and_click():
-    time.sleep(.5)
     img = Image.open('images/login_button.png')
-    if compare_img_screenshot(img,(1196, 406)):
-        pyautogui.click(1196 + random.randrange(1,20), 406 + random.randrange(1,20))
-        print("Login button clicked.")  
+    if compare_img_screenshot(img,(1177, 377)):
+        pyautogui.click(1177 + random.randrange(1,20), 377 + random.randrange(1,20))
+        print("login clicked")
         time.sleep(1.5)
         return True
     time.sleep(.5)
@@ -175,14 +173,15 @@ def login():
 def check_if_client_running(waiting = True):
     print("Checking if GGPoker client is running... waiting = "+str(waiting))
     gg_icon = Image.open('images/GG_icon3.png')
-    if compare_img_screenshot(gg_icon,(100, 100)):
+    if compare_img_screenshot(gg_icon,(def_clint[0], def_clint[1])):
         # best & normal case scenario, the client is already running and focused
+        pyautogui.click(def_clint[0], def_clint[1])
         print("GGPoker client is running.")
         return True
     global clint_pos
     for _ in range(7 if waiting else 1):
         time.sleep(3.5)
-        if compare_img_screenshot(gg_icon,(100, 100)):
+        if compare_img_screenshot(gg_icon,(def_clint[0], def_clint[1])):
             print("GGPoker client is running.")
             return True
         time.sleep(.5)
@@ -190,7 +189,7 @@ def check_if_client_running(waiting = True):
         print(clint_pos)
         if clint_pos != [-1, -1]:
             print('Client position found at: ', clint_pos)
-            if clint_pos != (100, 100):
+            if clint_pos != def_clint:
                 print("resetting client position on desktop.")
                 reset_client_window()
             return True
@@ -216,6 +215,7 @@ def start_client_and_login():
 
 
     while login() == "try again":
+        print("try again")
         find_login_button_and_click()
     return True
 

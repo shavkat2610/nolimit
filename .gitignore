@@ -8,3 +8,5 @@ testarea3.png
 model*
 *pyc
 testarea*
+__pycache__/*
+*/__pycache__

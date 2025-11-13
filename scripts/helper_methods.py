@@ -91,10 +91,11 @@ def imagesearch(image_path, precision=0.95, debug = True):
     im2 = pyautogui.screenshot(region=(max_loc[0], max_loc[1], template_gray.shape[0], template_gray.shape[1]))
     im2.save('temp7.png')
     img2_rgb = np.array(im2)
-    plt.imshow(img2_rgb, interpolation='nearest')
-    plt.show()
-    plt.imshow(template, interpolation='nearest')
-    plt.show()
+    if debug == True:
+        plt.imshow(img2_rgb, interpolation='nearest')
+        plt.show()
+        plt.imshow(template, interpolation='nearest')
+        plt.show()
     print('found at '+str(max_loc) +" - at confidence: "+str(max_val))
     return max_loc
 
@@ -102,7 +103,7 @@ def imagesearch(image_path, precision=0.95, debug = True):
 
 
 def reset_client_window(debug = True):
-    clint_pos = imagesearch('images/GG_icon3.png', precision=0.80)
+    clint_pos = imagesearch('images/GG_icon3.png', precision=0.80, debug=debug)
     if clint_pos != [-1, -1]:
         if clint_pos == def_clint:
             if debug:

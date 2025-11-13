@@ -88,7 +88,7 @@ def reset_client_window():
         pyautogui.moveTo(clint_pos[0], clint_pos[1])
         time.sleep(.3)
         pyautogui.mouseDown()
-        pyautogui.dragTo(x=def_clint[0]+300, y=def_clint[1]+200, duration=2.0, button='left')
+        pyautogui.dragTo(x=def_clint[0]+200, y=def_clint[1]+50, duration=2.0, button='left')
         time.sleep(.3)
         pyautogui.dragTo(x=def_clint[0], y=def_clint[1], duration=2.0, button='left')
         clint_pos = def_clint

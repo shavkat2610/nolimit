@@ -6,6 +6,8 @@ import cv2
 from PIL import Image
 import random
 # from matplotlib.pyplot import imshow
+import matplotlib
+matplotlib.use("Agg")
 from secrets1.secret import password, email
 from matplotlib import pyplot as plt
 import pyperclip

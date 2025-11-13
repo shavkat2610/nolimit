@@ -38,7 +38,7 @@ def compare_img_screenshot(im,pos, debug = True):
             print(im.getpixel((i,3))[0])
             print(im2.getpixel((i,3))[0])
         for j in range(0, min(height, max(25, height))):
-            if (int(im.getpixel((i,j))[0] - im2.getpixel((i,j))[0])!=0):
+            if (abs(int(im.getpixel((i,j))[0] - im2.getpixel((i,j))[0]))>=5):
                 if debug:
                     im.save(f'temp_{secs}_1.png')
                     im2.save(f'temp_{secs}_2.png')
@@ -181,8 +181,14 @@ def find_login_button_and_click():
 
 def login():
     time.sleep(2)
-    if imagesearch('images/cashier.png', precision=0.95) != [-1, -1]:
-        print("already logged in")
+    img = Image.open('images/cashier_insted.png')
+    if compare_img_screenshot(img,(1114, 352)):
+        print("already logged in ")
+        return True
+    img_pos = imagesearch('images/cashier_insted.png', precision=0.95)
+    if img_pos != [-1, -1]:
+        print("cashier position: ", img_pos)
+        print("already logged in ")
         return True
     find_login_button_and_click()
     #putting in credentials

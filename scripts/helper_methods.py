@@ -61,7 +61,7 @@ returns :
 the top left corner coordinates of the element if found as an array [x,y] or [-1,-1] if not
 
 '''
-def imagesearch(image_path, precision=0.7, debug = True):
+def imagesearch(image_path, precision=0.95, debug = True):
     im = pyautogui.screenshot(region=(0, 0, 1200, 750))
     secs = time.time()
     # im2.save('temp.png')
@@ -91,6 +91,7 @@ def imagesearch(image_path, precision=0.7, debug = True):
     im2 = pyautogui.screenshot(region=(max_loc[0], max_loc[1], template_gray.shape[0], template_gray.shape[1]))
     img2_rgb = np.array(im2)
     plt.imshow(img2_rgb, interpolation='nearest')
+    img2_rgb.save('temp7.png')
     plt.show()
     plt.imshow(template, interpolation='nearest')
     plt.show()

@@ -68,7 +68,7 @@ def imagesearch(image_path, precision=0.7, debug = True):
     # img2_rgb = np.array(im2)
     img_gray = cv2.cvtColor(img_rgb, cv2.COLOR_RGB2GRAY)
     template = cv2.imread(image_path, 1)
-    # template = cv2.cvtColor(template, cv2.COLOR_BGR2RGB)
+    template = cv2.cvtColor(template, cv2.COLOR_BGR2RGB)
     try:
         coordinates = pyautogui.locate(template, img_rgb, confidence=0.999)
         print('pyautogui located')
@@ -79,20 +79,20 @@ def imagesearch(image_path, precision=0.7, debug = True):
     # plt.show()
     # plt.imshow(template, interpolation='nearest')
     # plt.show()
-    template = cv2.cvtColor(template, cv2.COLOR_RGB2GRAY)
+    template_gray = cv2.cvtColor(template, cv2.COLOR_RGB2GRAY)
     # img_rgb.shape[::-1]
-    res = cv2.matchTemplate(img_gray, template, cv2.TM_CCOEFF_NORMED)
+    res = cv2.matchTemplate(img_gray, template_gray, cv2.TM_CCOEFF_NORMED)
     min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
     if max_val < precision:
         print('not found')
         return [-1, -1]
-    print('found at '+str(max_loc) +" - at confidence: "+str(max_val))
-    im2 = pyautogui.screenshot(region=(max_loc[0], max_loc[1], 50, 50))
+    im2 = pyautogui.screenshot(region=(max_loc[0], max_loc[1], template_gray.shape[0], template_gray.shape[1]))
     img2_rgb = np.array(im2)
     plt.imshow(img2_rgb, interpolation='nearest')
     plt.show()
     plt.imshow(template, interpolation='nearest')
     plt.show()
+    print('found at '+str(max_loc) +" - at confidence: "+str(max_val))
     return max_loc
 
 

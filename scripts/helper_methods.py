@@ -23,7 +23,7 @@ def remove_debug_imgs():
 remove_debug_imgs()
 
 
-def_clint = (70, 70)
+def_clint = (10, 20)
 
 
 # up to am max of 10

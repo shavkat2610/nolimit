@@ -138,7 +138,7 @@ def login():
         time.sleep(.5)
         mails = email.split('-at-')
         pyautogui.typewrite(mails[0], interval=0.2)
-        pyautogui.hotkey('altright','q') # typing @
+        pyautogui.hotkey('altright','2') # typing @
         pyautogui.typewrite(mails[1], interval=0.2)
         time.sleep(.5)
         pyautogui.doubleClick(upper_corner_pos[0] + 236, upper_corner_pos[1] + 160)

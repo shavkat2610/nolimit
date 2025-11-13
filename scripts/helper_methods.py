@@ -80,7 +80,7 @@ def imagesearch(image_path, precision=0.95, debug = True):
     try:
         coordinates = pyautogui.locate(template, img_rgb, confidence=0.999)
         print('pyautogui located '+image_path)
-        return (coordinates[0].__int__(), coordinates[1].__int__())
+        return [coordinates[0].__int__(), coordinates[1].__int__()]
     except:
         print(f'{image_path} not found at first glance')
     # plt.imshow(img2_rgb, interpolation='nearest')
@@ -456,11 +456,10 @@ def push_holdem():
             pyautogui.click(push_holdem_pos[0] + random.randrange(3,10), push_holdem_pos[1] + random.randrange(3,10))
             print("Holdem clicked.")
             img = Image.open('images/holdem_clicked.png')
-            if compare_img_screenshot(img,(418, 170)):
+            if compare_img_screenshot(img,(350, 142)):
                 print("Holdem confirmed clicked.")
                 return True
-            img = Image.open('images/holdem_clicked_2.png')
-            if compare_img_screenshot(img,(418, 170)):
+            if imagesearch('images/holdem_clicked.png', precision=0.95) != [-1, -1]:
                 print("Holdem confirmed clicked.")
                 return True
     return False

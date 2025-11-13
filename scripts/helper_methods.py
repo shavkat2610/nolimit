@@ -61,7 +61,7 @@ def imagesearch(image, precision=0.7):
         print('pyautogui located')
         return (coordinates[0].__int__(), coordinates[1].__int__())
     except:
-        print('Image not found at first glance')
+        print(f'{image} not found at first glance')
     # plt.imshow(img2_rgb, interpolation='nearest')
     # plt.show()
     # plt.imshow(template, interpolation='nearest')

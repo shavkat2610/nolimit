@@ -129,23 +129,29 @@ def reset_client_window(debug = True):
 
 def find_login_button_and_click():
     img = Image.open('images/cashier_2.png')
-    if compare_img_screenshot(img,(1115, 352)):
+    if compare_img_screenshot(img,(1114, 352)):
         print("already logged in ")
         return True
     img = Image.open('images/cashier_3.png')
-    if compare_img_screenshot(img,(1115, 352)):
+    if compare_img_screenshot(img,(1114, 352)):
         print("already logged in ")
         return True
     img = Image.open('images/login_button.png')
-    if compare_img_screenshot(img,(1115, 352)):
+    if compare_img_screenshot(img,(1114, 352)):
         pyautogui.click(1115 + random.randrange(1,20), 352 + random.randrange(1,20))
         print("login clicked")
         time.sleep(1.5)
         return True
     img2 = Image.open('images/login_button_2.png')
-    if compare_img_screenshot(img2,(1177, 377)):
+    if compare_img_screenshot(img2,(1114, 352)):
         pyautogui.click(1177 + random.randrange(1,20), 377 + random.randrange(1,20))
         print("login clicked (2)")
+        time.sleep(1.5)
+        return True
+    img0 = Image.open('images/login_button_0.png')
+    if compare_img_screenshot(img0,(1114, 352)):
+        pyautogui.click(1177 + random.randrange(1,20), 377 + random.randrange(1,20))
+        print("login clicked (3)")
         time.sleep(1.5)
         return True
     time.sleep(.5)

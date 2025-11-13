@@ -7,7 +7,7 @@ from PIL import Image
 import random
 # from matplotlib.pyplot import imshow
 import matplotlib
-matplotlib.use('agg')
+# matplotlib.use('agg')
 from secrets1.secret import password, email
 from matplotlib import pyplot as plt
 # import pyperclip

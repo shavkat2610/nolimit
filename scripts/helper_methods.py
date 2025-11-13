@@ -15,7 +15,7 @@ def_clint = (70, 70)
 
 
 # up to am max of 10
-def compare_img_screenshot(im,pos):
+def compare_img_screenshot(im,pos, debug = True):
     # saving both if unsuccessful
     width, height = im.size
     secs = time.time()
@@ -24,8 +24,9 @@ def compare_img_screenshot(im,pos):
     for i in range(0, min(width, max(25, width))):
         for j in range(0, min(height, max(25, height))):
             if (int(im.getpixel((i,j))[0] - im2.getpixel((i,j))[0])!=0):
-                im.save(f'temp_{secs}_1.png')
-                im2.save(f'temp_{secs}_2.png')
+                if debug:
+                    im.save(f'temp_{secs}_1.png')
+                    im2.save(f'temp_{secs}_2.png')
                 return False
     return True
 
@@ -46,7 +47,7 @@ returns :
 the top left corner coordinates of the element if found as an array [x,y] or [-1,-1] if not
 
 '''
-def imagesearch(image, precision=0.7):
+def imagesearch(image, precision=0.7, debug = True):
     im = pyautogui.screenshot(region=(0, 0, 1200, 750))
     secs = time.time()
     # im2 = pyautogui.screenshot(region=(8, 32, 50, 50))
@@ -175,7 +176,7 @@ def login():
 def check_if_client_running(waiting = True):
     print("Checking if GGPoker client is running... waiting = "+str(waiting))
     gg_icon = Image.open('images/GG_icon3.png')
-    if compare_img_screenshot(gg_icon,(def_clint[0], def_clint[1])):
+    if compare_img_screenshot(gg_icon,(def_clint[0], def_clint[1]), debug=False):
         # best & normal case scenario, the client is already running and focused
         pyautogui.click(def_clint[0], def_clint[1])
         print("GGPoker client is running.")
@@ -183,7 +184,7 @@ def check_if_client_running(waiting = True):
     global clint_pos
     for _ in range(7 if waiting else 1):
         time.sleep(3.5)
-        if compare_img_screenshot(gg_icon,(def_clint[0], def_clint[1])):
+        if compare_img_screenshot(gg_icon,(def_clint[0], def_clint[1]), debug=False):
             print("GGPoker client is running.")
             return True
         time.sleep(.5)

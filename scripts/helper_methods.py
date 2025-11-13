@@ -96,7 +96,6 @@ def imagesearch(image_path, precision=0.95, debug = True):
         plt.imshow(img2_rgb, interpolation='nearest')
         plt.show()
         plt.imshow(template, interpolation='nearest')
-
         plt.show()
     print('found at '+str(max_loc) +" - at confidence: "+str(max_val))
     return max_loc
@@ -131,14 +130,19 @@ def reset_client_window(debug = True):
 
 
 def find_login_button_and_click():
-    img = Image.open('images/cashier_2.png')
+    img = Image.open('images/cashier_insted.png')
     if compare_img_screenshot(img,(1114, 352)):
         print("already logged in ")
         return True
-    img = Image.open('images/cashier_3.png')
-    if compare_img_screenshot(img,(1114, 352)):
+    img_pos = imagesearch('images/cashier_insted.png', precision=0.95)
+    if img_pos != [-1, -1]:
+        print("cashier position: ", img_pos)
         print("already logged in ")
         return True
+    # img = Image.open('images/cashier_3.png')
+    # if compare_img_screenshot(img,(1114, 352)):
+    #     print("already logged in ")
+    #     return True
     img = Image.open('images/login_button.png')
     if compare_img_screenshot(img,(1114, 352)):
         pyautogui.click(1115 + random.randrange(1,20), 352 + random.randrange(1,20))

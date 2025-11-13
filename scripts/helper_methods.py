@@ -23,7 +23,7 @@ def compare_img_screenshot(im,pos, debug = True):
     # im2.show()
     for i in range(0, min(width, max(25, width))):
         for j in range(0, min(height, max(25, height))):
-            if (int(im.getpixel((i,j))[0] - im2.getpixel((i,j))[0])!=0):
+            if (abs(int(im.getpixel((i,j))[0] - im2.getpixel((i,j))[0]))<=3):
                 if debug:
                     im.save(f'temp_{secs}_1.png')
                     im2.save(f'temp_{secs}_2.png')
@@ -129,8 +129,8 @@ def find_login_button_and_click():
         time.sleep(1.5)
         return True
     time.sleep(.5)
-    login_button_pos = imagesearch('images/login_button.png', precision=0.75)
-    login_button_pos_2 = imagesearch('images/login_button_2.png', precision=0.75)
+    login_button_pos = imagesearch('images/login_button.png', precision=0.95)
+    login_button_pos_2 = imagesearch('images/login_button_2.png', precision=0.95)
     print("Login button position: ", login_button_pos)
     if login_button_pos != [-1, -1]:
         pyautogui.click(login_button_pos[0] + random.randrange(1,20), login_button_pos[1] + random.randrange(1,20))

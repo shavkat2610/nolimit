@@ -15,14 +15,17 @@ def_clint = (70, 70)
 
 # up to am max of 10
 def compare_img_screenshot(im,pos):
+    # saving both if unsuccessful
     width, height = im.size
+    secs = time.time()
     im2 = pyautogui.screenshot(region=(pos[0], pos[1], width, height))
     # im2.show()
     for i in range(0, min(width, max(25, width))):
         for j in range(0, min(height, max(25, height))):
             if (int(im.getpixel((i,j))[0] - im2.getpixel((i,j))[0])!=0):
+                im.save(f'temp_{secs}_1.png')
+                im2.save(f'temp_{secs}_2.png')
                 return False
-    print('compare img successful')
     return True
 
 
@@ -55,29 +58,22 @@ def imagesearch(image, precision=0.7):
     template = cv2.cvtColor(template, cv2.COLOR_BGR2RGB)
     try:
         coordinates = pyautogui.locate(template, img_rgb, confidence=0.999)
+        print('pyautogui located')
         return (coordinates[0].__int__(), coordinates[1].__int__())
     except:
         print('Image not found at first glance')
     # plt.imshow(img2_rgb, interpolation='nearest')
     # plt.show()
-    plt.imshow(template, interpolation='nearest')
-    plt.show()
+    # plt.imshow(template, interpolation='nearest')
+    # plt.show()
     template = cv2.cvtColor(template, cv2.COLOR_RGB2GRAY)
-    print('---------------------------------------------- HERE WE GO ----------------------------')
-    print('was here 3000 years ago')
-    img_rgb.shape[::-1]
-    print('-----------#####-----------------------------')
-    # print(img_rgb[0].shape)
-    print('-----------#####-----------------------------')
-    # print(template.shape[::-1])
-    print('-----------#####-----------------------------')
-    # print(template[0].shape)
-    print('-----------#####-----------------------------')
+    # img_rgb.shape[::-1]
     res = cv2.matchTemplate(img_gray, template, cv2.TM_CCOEFF_NORMED)
     min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
     if max_val < precision:
+        print('not found')
         return [-1, -1]
-    print('found at '+str(max_val))
+    print('found at '+str(max_loc) +"at confidence: "+str(max_val))
     return max_loc
 
 
@@ -112,7 +108,7 @@ def find_login_button_and_click():
         time.sleep(1.5)
         return True
     time.sleep(.5)
-    login_button_pos = imagesearch('images/login_button.png', precision=0.95)
+    login_button_pos = imagesearch('images/login_button.png', precision=0.75)
     print("Login button position: ", login_button_pos)
     if login_button_pos != [-1, -1]:
         pyautogui.click(login_button_pos[0] + random.randrange(1,20), login_button_pos[1] + random.randrange(1,20))
@@ -131,8 +127,8 @@ def login():
     find_login_button_and_click()
     #putting in credentials
     upper_corner = Image.open('images/login_popup_upper_corner.png')
-    if compare_img_screenshot(upper_corner,(508, 191)):
-        upper_corner_pos = (508, 191)
+    if compare_img_screenshot(upper_corner,(478, 161)):
+        upper_corner_pos = (478, 161)
     else: 
         upper_corner_pos = imagesearch('images/login_popup_upper_corner.png', precision=0.95)    
         print("upper_corner position: ", upper_corner_pos)
@@ -153,15 +149,15 @@ def login():
         return "try again"
 
     logging_in_button = Image.open('images/logging_in_button.png')
-    if compare_img_screenshot(logging_in_button,(582, 501)):
-        pyautogui.click(582 + random.randrange(1,100), 501 + random.randrange(1,20))
+    if compare_img_screenshot(logging_in_button,(552, 471)):
+        pyautogui.click(582 + random.randrange(1,100), 501 + random.randrange(1,10))
         time.sleep(1.5)
         return True
     time.sleep(.5)
     login_button_pos = imagesearch('images/logging_in_button.png', precision=0.95)    
     print("second login button position: ", login_button_pos)
     if login_button_pos != [-1, -1]:
-        pyautogui.click(login_button_pos[0] + random.randrange(1,100), login_button_pos[1] + random.randrange(1,20))
+        pyautogui.click(login_button_pos[0] + random.randrange(1,100), login_button_pos[1] + random.randrange(1,10))
         print("second login button clicked.")  
         time.sleep(1.5)
         return True
@@ -207,13 +203,11 @@ def start_client_and_login():
     elif os.name == 'nt':  # Windows
         os.system("start C:/Users/shavk/AppData/Roaming/GGPCOM/bin/launcher.exe")
 
-    time.sleep(5)
+    time.sleep(15)
 
     if not check_if_client_running():
         print("Client is not running!")
         exit()
-
-
 
     while login() == "try again":
         print("try again")
@@ -385,33 +379,42 @@ def push_holdem():
         if push_holdem_pos != [-1, -1]:
             pyautogui.click(push_holdem_pos[0] + random.randrange(3,10), push_holdem_pos[1] + random.randrange(3,10))
             print("Holdem clicked.")
-            if imagesearcharea('images/holdem_clicked.png', 600, 300, 1300, 750, precision=0.75) != [-1, -1]:
+            img = Image.open('images/holdem_clicked.png')
+            if compare_img_screenshot(img,(418, 170)):
                 print("Holdem confirmed clicked.")
                 return True
-        
     return False
 
 
 def scroll_to_bottom():
     # from holdem button 
     pyautogui.moveTo(610 + random.randrange(3,10), 550 + random.randrange(3,10))
-    pyautogui.scroll(-10)
+    exit()
+    pyautogui.scroll(-5)
     time.sleep(.1)
-    pyautogui.scroll(-10)
+    pyautogui.scroll(-5)
     time.sleep(.1)
-    pyautogui.scroll(-10)
+    pyautogui.scroll(-5)
     time.sleep(.1)
-    pyautogui.scroll(-10)
+    pyautogui.scroll(-5)
     time.sleep(.1)
-    pyautogui.scroll(-10)
+    pyautogui.scroll(-5)
     time.sleep(.1)
-    pyautogui.scroll(-10)
+    pyautogui.scroll(-5)
     time.sleep(.1)
-    pyautogui.scroll(-10)
+    pyautogui.scroll(-5)
     time.sleep(.1)
-    pyautogui.scroll(-10)
+    pyautogui.scroll(-5)
     time.sleep(.1)
-    pyautogui.scroll(-10)
+    pyautogui.scroll(-5)
+    time.sleep(.1)
+    pyautogui.scroll(-5)
+    time.sleep(.1)
+    pyautogui.scroll(-5)
+    time.sleep(.1)
+    pyautogui.scroll(-5)
+    time.sleep(.1)
+    pyautogui.scroll(-5)
 
 
 

@@ -37,9 +37,12 @@ def reset_client_window():
 def screenshot_area(point = (0, 0)):
     time.sleep(2.5)
     reset_client_window()
-    im = pyautogui.screenshot(region=(point[0], point[1], 25, 25))
+    im = pyautogui.screenshot(region=(point[0], point[1], 35, 20))
     # secs = time.time()
     # im2 = pyautogui.screenshot(region=(8, 32, 50, 50))
     im.save('temp.png')
 
-screenshot_area(point=(1177, 376))
+screenshot_area(point=(418, 170))
+
+
+

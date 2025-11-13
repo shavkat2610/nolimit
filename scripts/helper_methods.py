@@ -198,8 +198,8 @@ def login():
     find_login_button_and_click()
     #putting in credentials
     upper_corner = Image.open('images/login_popup_upper_corner.png')
-    if compare_img_screenshot(upper_corner,(416, 136)):
-        upper_corner_pos = (416, 136)
+    if compare_img_screenshot(upper_corner,(420, 148)):
+        upper_corner_pos = (420, 148)
     else: 
         upper_corner_pos = imagesearch('images/login_popup_upper_corner.png', precision=0.95)    
         print("upper_corner position: ", upper_corner_pos)
@@ -224,8 +224,8 @@ def login():
         return "try again"
 
     logging_in_button = Image.open('images/logging_in_button.png')
-    if compare_img_screenshot(logging_in_button,(490, 446)):
-        pyautogui.click(490 + random.randrange(1,100), 446 + random.randrange(1,10))
+    if compare_img_screenshot(logging_in_button,(569, 455)):
+        pyautogui.click(569 + random.randrange(1,100), 455 + random.randrange(1,10))
         time.sleep(1.5)
         return True
     time.sleep(.5)

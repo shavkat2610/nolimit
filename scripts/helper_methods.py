@@ -103,6 +103,10 @@ def reset_client_window():
 
 
 def find_login_button_and_click():
+    img = Image.open('images/cashier_2.png')
+    if compare_img_screenshot(img,(1177, 377)):
+        print("already logged in ")
+        return True
     img = Image.open('images/login_button.png')
     if compare_img_screenshot(img,(1177, 377)):
         pyautogui.click(1177 + random.randrange(1,20), 377 + random.randrange(1,20))

@@ -468,7 +468,6 @@ def push_holdem():
 def scroll_to_bottom():
     # from holdem button 
     pyautogui.moveTo(610 + random.randrange(3,10), 550 + random.randrange(3,10))
-    exit()
     pyautogui.scroll(-5)
     time.sleep(.1)
     pyautogui.scroll(-5)

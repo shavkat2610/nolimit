@@ -23,7 +23,7 @@ def remove_debug_imgs():
 remove_debug_imgs()
 
 
-def_clint = (10, 20)
+def_clint = (7, 45)
 
 
 # up to am max of 10
@@ -73,7 +73,7 @@ def imagesearch(image_path, precision=0.95, debug = True):
     template = cv2.cvtColor(template, cv2.COLOR_BGR2RGB)
     try:
         coordinates = pyautogui.locate(template, img_rgb, confidence=0.999)
-        print('pyautogui located')
+        print('pyautogui located '+image_path)
         return (coordinates[0].__int__(), coordinates[1].__int__())
     except:
         print(f'{image_path} not found at first glance')
@@ -112,7 +112,7 @@ def reset_client_window(debug = True):
         pyautogui.moveTo(clint_pos[0], clint_pos[1])
         time.sleep(.3)
         pyautogui.mouseDown()
-        pyautogui.dragTo(x=def_clint[0]+200, y=def_clint[1]+50, duration=2.0, button='left')
+        # pyautogui.dragTo(x=def_clint[0]+50, y=def_clint[1]+50, duration=2.0, button='left')
         time.sleep(.3)
         pyautogui.dragTo(x=def_clint[0], y=def_clint[1], duration=2.0, button='left')
         clint_pos = def_clint

@@ -7,8 +7,6 @@ import cv2
 from scripts.helper_methods import imagesearch, reset_client_window
 
 
-def_clint = (70, 70)
-
 
 
 

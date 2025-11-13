@@ -6,6 +6,8 @@ import cv2
 from PIL import Image
 import random
 # from matplotlib.pyplot import imshow
+import matplotlib
+matplotlib.use('agg')
 from secrets1.secret import password, email
 from matplotlib import pyplot as plt
 # import pyperclip
@@ -98,11 +100,13 @@ def imagesearch(image_path, precision=0.7, debug = True):
 
 
 
-def reset_client_window():
-    clint_pos = imagesearch('images/GG_icon3.png', precision=0.95)
+def reset_client_window(debug = True):
+    clint_pos = imagesearch('images/GG_icon3.png', precision=0.80)
     if clint_pos != [-1, -1]:
         if clint_pos == def_clint:
-            return
+            if debug:
+                print('already in position')
+            return True
         time.sleep(.3)
         pyautogui.moveTo(clint_pos[0], clint_pos[1])
         time.sleep(.3)
@@ -115,6 +119,9 @@ def reset_client_window():
         pyautogui.mouseUp()
         time.sleep(.3)
         # time.sleep(2)
+    else:
+        print("reset window failed to locate GG_icon")
+        return False
 
 
 

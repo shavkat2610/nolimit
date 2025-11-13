@@ -10,7 +10,17 @@ import matplotlib
 matplotlib.use("Agg")
 from secrets1.secret import password, email
 from matplotlib import pyplot as plt
-import pyperclip
+# import pyperclip
+import glob
+
+def remove_debug_imgs():
+    removing_files = glob.glob('temp_*_1.png')
+    removing_files_0 = glob.glob('temp_*_2.png')
+    for i in removing_files:
+        os.remove(i)
+    for i in removing_files_0:
+        os.remove(i)
+remove_debug_imgs()
 
 
 def_clint = (70, 70)

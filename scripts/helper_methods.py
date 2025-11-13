@@ -23,7 +23,7 @@ def remove_debug_imgs():
 remove_debug_imgs()
 
 
-def_clint = (7, 45)
+def_clint = (7, 45) #69, 70
 
 
 # up to am max of 10
@@ -129,22 +129,22 @@ def reset_client_window(debug = True):
 
 def find_login_button_and_click():
     img = Image.open('images/cashier_2.png')
-    if compare_img_screenshot(img,(1177, 377)):
+    if compare_img_screenshot(img,(1115, 352)):
         print("already logged in ")
         return True
     img = Image.open('images/cashier_3.png')
-    if compare_img_screenshot(img,(1177, 377)):
+    if compare_img_screenshot(img,(1115, 352)):
         print("already logged in ")
         return True
     img = Image.open('images/login_button.png')
-    if compare_img_screenshot(img,(1177, 377)):
-        pyautogui.click(1177 + random.randrange(1,20), 377 + random.randrange(1,20))
+    if compare_img_screenshot(img,(1115, 352)):
+        pyautogui.click(1115 + random.randrange(1,20), 352 + random.randrange(1,20))
         print("login clicked")
         time.sleep(1.5)
         return True
     img2 = Image.open('images/login_button_2.png')
-    if compare_img_screenshot(img2,(1177, 377)):
-        pyautogui.click(1177 + random.randrange(1,20), 377 + random.randrange(1,20))
+    if compare_img_screenshot(img2,(1115, 352)):
+        pyautogui.click(1115 + random.randrange(1,20), 352 + random.randrange(1,20))
         print("login clicked")
         time.sleep(1.5)
         return True
@@ -174,8 +174,8 @@ def login():
     find_login_button_and_click()
     #putting in credentials
     upper_corner = Image.open('images/login_popup_upper_corner.png')
-    if compare_img_screenshot(upper_corner,(478, 161)):
-        upper_corner_pos = (478, 161)
+    if compare_img_screenshot(upper_corner,(416, 136)):
+        upper_corner_pos = (416, 136)
     else: 
         upper_corner_pos = imagesearch('images/login_popup_upper_corner.png', precision=0.95)    
         print("upper_corner position: ", upper_corner_pos)
@@ -200,8 +200,8 @@ def login():
         return "try again"
 
     logging_in_button = Image.open('images/logging_in_button.png')
-    if compare_img_screenshot(logging_in_button,(552, 471)):
-        pyautogui.click(582 + random.randrange(1,100), 501 + random.randrange(1,10))
+    if compare_img_screenshot(logging_in_button,(490, 446)):
+        pyautogui.click(490 + random.randrange(1,100), 446 + random.randrange(1,10))
         time.sleep(1.5)
         return True
     time.sleep(.5)

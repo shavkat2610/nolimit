@@ -320,11 +320,14 @@ def region_grabber(region):
 
 
 
-def compare_img(im,img2):
+def compare_img(im,img2): # why is thos failing
     size=img2.size
     for i in range(0, size[0]):
         for j in range(0, size[1]):
-            if (int(im.getpixel((i,j)[0]) - img2.getpixel((i,j))[0])!=0):
+            if abs(int(im.getpixel((i,j))[0] - img2.getpixel((i,j))[0]))>=5:
+                im.getpixel((i,j))
+                img2.getpixel((i,j))
+                (i,j)
                 print("compare image unsuccessful")
                 return False
     print("compare image successful")

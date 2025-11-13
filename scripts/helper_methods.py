@@ -8,6 +8,7 @@ import random
 from matplotlib.pyplot import imshow
 from secrets1.secret import password, email
 from matplotlib import pyplot as plt
+import pyperclip
 
 
 def_clint = (70, 70)
@@ -138,7 +139,9 @@ def login():
         time.sleep(.5)
         mails = email.split('-at-')
         pyautogui.typewrite(mails[0], interval=0.2)
-        pyautogui.hotkey('altright','2') # typing @
+        # pyautogui.hotkey('altright','2') # typing @
+        pyperclip.copy('@')
+        pyautogui.hotkey('ctrl', 'v')
         pyautogui.typewrite(mails[1], interval=0.2)
         time.sleep(.5)
         pyautogui.doubleClick(upper_corner_pos[0] + 236, upper_corner_pos[1] + 160)

@@ -329,6 +329,7 @@ def compare_img(im,img2): # why is thos failing
                 img2.getpixel((i,j))
                 (i,j)
                 print("compare image unsuccessful")
+                input("Press Enter to continue...")
                 return False
     print("compare image successful")
     return True

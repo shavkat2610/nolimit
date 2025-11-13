@@ -109,14 +109,26 @@ def find_login_button_and_click():
         print("login clicked")
         time.sleep(1.5)
         return True
+    img2 = Image.open('images/login_button_2.png')
+    if compare_img_screenshot(img2,(1177, 377)):
+        pyautogui.click(1177 + random.randrange(1,20), 377 + random.randrange(1,20))
+        print("login clicked")
+        time.sleep(1.5)
+        return True
     time.sleep(.5)
     login_button_pos = imagesearch('images/login_button.png', precision=0.75)
+    login_button_pos_2 = imagesearch('images/login_button_2.png', precision=0.75)
     print("Login button position: ", login_button_pos)
     if login_button_pos != [-1, -1]:
         pyautogui.click(login_button_pos[0] + random.randrange(1,20), login_button_pos[1] + random.randrange(1,20))
         print("Login button clicked.")  
         time.sleep(1.5)
         return True
+    if login_button_pos_2 != [-1, -1]:
+        pyautogui.click(login_button_pos_2[0] + random.randrange(1,20), login_button_pos_2[1] + random.randrange(1,20))
+        print("Login button clicked.")  
+        time.sleep(1.5)
+        return True 
     return False
 
 

@@ -2,7 +2,7 @@ import pyautogui
 import time
 import numpy as np
 import cv2
-from matplotlib import pyplot as plt
+# from matplotlib import pyplot as plt
 
 from scripts.helper_methods import imagesearch
 

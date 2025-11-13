@@ -5,7 +5,7 @@ import numpy as np
 import cv2
 from PIL import Image
 import random
-from matplotlib.pyplot import imshow
+# from matplotlib.pyplot import imshow
 from secrets1.secret import password, email
 from matplotlib import pyplot as plt
 import pyperclip

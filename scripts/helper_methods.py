@@ -37,7 +37,7 @@ def compare_img_screenshot(im,pos, debug = True):
         if debug:
             print(im.getpixel((i,3)))
         for j in range(0, min(height, max(25, height))):
-            if (abs(int(im.getpixel((i,j))[0] - im2.getpixel((i,j))[0]))>=2):
+            if (int(im.getpixel((i,j))[0] - im2.getpixel((i,j))[0])==0):
                 if debug:
                     im.save(f'temp_{secs}_1.png')
                     im2.save(f'temp_{secs}_2.png')
@@ -95,6 +95,7 @@ def imagesearch(image_path, precision=0.95, debug = True):
         plt.imshow(img2_rgb, interpolation='nearest')
         plt.show()
         plt.imshow(template, interpolation='nearest')
+
         plt.show()
     print('found at '+str(max_loc) +" - at confidence: "+str(max_val))
     return max_loc

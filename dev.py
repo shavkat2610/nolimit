@@ -21,7 +21,7 @@ def screenshot_area(point = (0, 0)):
     # im2 = pyautogui.screenshot(region=(8, 32, 50, 50))
     im.save('holdem.png')
 
-screenshot_area(point=(420, 170))
+screenshot_area(point=(350, 172))
 
 
 

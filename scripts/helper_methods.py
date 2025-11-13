@@ -215,13 +215,14 @@ def check_if_client_running(waiting = True):
             return True
         time.sleep(.5)
         clint_pos = imagesearch('images/GG_icon3.png', precision=0.75)
-        print(clint_pos)
         if clint_pos != [-1, -1]:
             print('Client position found at: ', clint_pos)
             if clint_pos != def_clint:
                 print("resetting client position on desktop.")
                 reset_client_window()
+            else: pyautogui.click(clint_pos[0], clint_pos[1])
             return True
+        
     print("GGPoker client is not running.")
     return False
 

@@ -6,8 +6,6 @@ import cv2
 from PIL import Image
 import random
 # from matplotlib.pyplot import imshow
-import matplotlib
-matplotlib.use("Agg")
 from secrets1.secret import password, email
 from matplotlib import pyplot as plt
 # import pyperclip
@@ -37,7 +35,7 @@ def compare_img_screenshot(im,pos, debug = True):
         if debug:
             print(im.getpixel((i,3)))
         for j in range(0, min(height, max(25, height))):
-            if (abs(int(im.getpixel((i,j))[0] - im2.getpixel((i,j))[0]))<=3):
+            if (abs(int(im.getpixel((i,j))[0] - im2.getpixel((i,j))[0]))>=2):
                 if debug:
                     im.save(f'temp_{secs}_1.png')
                     im2.save(f'temp_{secs}_2.png')

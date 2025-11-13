@@ -38,7 +38,7 @@ def compare_img_screenshot(im,pos, debug = True):
             print(im.getpixel((i,3))[0])
             print(im2.getpixel((i,3))[0])
         for j in range(0, min(height, max(25, height))):
-            if (int(im.getpixel((i,j))[0] - im2.getpixel((i,j))[0])==0):
+            if (int(im.getpixel((i,j))[0] - im2.getpixel((i,j))[0])!=0):
                 if debug:
                     im.save(f'temp_{secs}_1.png')
                     im2.save(f'temp_{secs}_2.png')

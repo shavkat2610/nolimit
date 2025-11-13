@@ -34,10 +34,7 @@ def compare_img_screenshot(im,pos, debug = True):
     im2 = pyautogui.screenshot(region=(pos[0], pos[1], width, height))
     # im2.show()
     for i in range(0, min(width, max(25, width))):
-        if debug:
-            print('I was at compare_img_screenshot')
-            # print(im.getpixel((i,3))[0])
-            # print(im2.getpixel((i,3))[0])
+
         for j in range(0, min(height, max(25, height))):
             if (abs(int(im.getpixel((i,j))[0] - im2.getpixel((i,j))[0]))>=5):
                 if debug:

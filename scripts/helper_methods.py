@@ -113,7 +113,7 @@ def imagesearch(image_path, precision=0.95, debug = True):
 
 
 def reset_client_window(debug = False):
-    clint_pos = imagesearch('images/GG_icon3.png', precision=0.80, debug=debug)
+    clint_pos = imagesearch('images/GG_icon3.png', precision=0.99, debug=debug)
     if clint_pos != [-1, -1]:
         while True:
             if clint_pos == def_clint:
@@ -129,12 +129,24 @@ def reset_client_window(debug = False):
             time.sleep(.3)
             pyautogui.mouseUp()
             time.sleep(.3)
-            clint_pos = imagesearch('images/GG_icon3.png', precision=0.80, debug=debug)
+            clint_pos = imagesearch('images/GG_icon3.png', precision=0.99, debug=debug)
             if clint_pos == def_clint:
                 return True
             # time.sleep(2)
     else:
         print("reset window failed to locate GG_icon")
+        sespos = imagesearch('images/session.png', precision=0.99, debug=debug)
+        if sespos != [-1, -1]:
+            print("sespos = "+str(sespos))
+            pyautogui.moveTo(sespos[0]+3, sespos[1]+3)
+            time.sleep(.3)
+            pyautogui.mouseDown()
+            pyautogui.dragTo(x=1200, y=45, duration=0.5, button='left')
+            time.sleep(.3)
+            pyautogui.mouseUp()
+            time.sleep(.3)
+            reset_client_window()
+            # time.sleep(2)
         return False
 
 

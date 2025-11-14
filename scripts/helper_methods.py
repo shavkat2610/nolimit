@@ -435,14 +435,14 @@ def see_if_there_is_l_info(debug = False):
         # click_one_times_please('images/i_understand.png')
         return True
     time.sleep(.5)
-    l_info_pos = imagesearch('images/l_info_headline.png', precision=0.85, debug = debug)
+    l_info_pos = imagesearch('images/l_info_headline.png', precision=0.75, debug = False)
     if (l_info_pos == [-1, -1]):
         return False
     else:
         print("L info headline position: ", l_info_pos)
         for _ in range(2):
             time.sleep(.5)
-            result = click_one_times_please('images/i_understand.png', debug = debug)
+            result = click_one_times_please('images/i_understand.png', precision=0.75, debug = False)
             print("I understand , I was here #2 , result: "+str(result))
             if result:
                 return True

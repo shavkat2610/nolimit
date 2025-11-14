@@ -491,7 +491,7 @@ def push_holdem():
                 return True
         else:
             print("something went wrong somehow idk dude ...")
-            if imagesearch('images/holdem_clicked.png', precision=0.98, debug = True) != [-1, -1]:
+            if imagesearch('images/holdem_clicked.png', precision=0.95, debug = True) != [-1, -1]:
                 print("Holdem already clicked. 5")
                 return True
             push_holdem_pos = imagesearch('images/holdem.png', precision=.95, debug = True)

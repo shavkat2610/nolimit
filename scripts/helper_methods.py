@@ -222,6 +222,7 @@ def login():
     if compare_img_screenshot(upper_corner,(420, 148)):
         upper_corner_pos = (420, 148)
     else: 
+        time.sleep(2)
         upper_corner_pos = imagesearch('images/login_popup_upper_corner.png', precision=0.80)    
         print("upper_corner position: ", upper_corner_pos)
 

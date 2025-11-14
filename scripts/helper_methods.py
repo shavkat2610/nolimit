@@ -28,16 +28,15 @@ def_clint = (7, 45) #69, 70
 
 
 # up to am max of 10
-def compare_img_screenshot(im,pos, debug = True):
+def compare_img_screenshot(im,pos, max_ = 50, debug = True):
     # saving both if unsuccessful
     width, height = im.size
     secs = time.time()
     im2 = pyautogui.screenshot(region=(pos[0], pos[1], width, height))
     # im2.show()
-    for i in range(0, min(width, max(25, width))):
-
-        for j in range(0, min(height, max(25, height))):
-            if (abs(int(im.getpixel((i,j))[0] - im2.getpixel((i,j))[0]))>=5):
+    for i in range(0, min(width, max(max_, width))):
+        for j in range(0, min(height, max(max_, height))):
+            if (abs(int(im.getpixel((i,j))[0] - im2.getpixel((i,j))[0]))>9):
                 if debug:
                     print(str(im.getpixel((i,j))[0])+" and "+str(im2.getpixel((i,j))[0]) + " are not the same")
                     im.save(f'temp_{secs}_1.png')

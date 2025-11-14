@@ -144,7 +144,7 @@ def find_login_button_and_click():
     if compare_img_screenshot(img,(1114, 352)):
         print("already logged in ")
         return True
-    img_pos = imagesearch('images/cashier_insted.png', precision=0.95)
+    img_pos = imagesearch('images/cashier_insted.png', precision=0.95, debug=False)
     if img_pos != [-1, -1]:
         print("cashier position: ", img_pos)
         print("already logged in ")
@@ -195,7 +195,7 @@ def login():
     if compare_img_screenshot(img,(1114, 352)):
         print("already logged in ")
         return True
-    img_pos = imagesearch('images/cashier_insted.png', precision=0.95)
+    img_pos = imagesearch('images/cashier_insted.png', precision=0.95, debug=False)
     if img_pos != [-1, -1]:
         print("cashier position: ", img_pos)
         print("already logged in ")

@@ -411,9 +411,9 @@ def click_two_times_please(image_path):
     return False
 
 
-def click_one_times_please(image_path):
+def click_one_times_please(image_path, debug = False):
     for _ in range(2):
-        button_pos = imagesearch(image_path, precision=0.95)
+        button_pos = imagesearch(image_path, precision=0.95, debug = debug)
         print(f"{image_path} position: ", button_pos)
         if button_pos != [-1, -1]:
             pyautogui.click(button_pos[0] + random.randrange(1,10), button_pos[1] + random.randrange(1,10))
@@ -424,7 +424,7 @@ def click_one_times_please(image_path):
 
 
 
-def see_if_there_is_l_info():
+def see_if_there_is_l_info(debug = False):
     img = Image.open('images/i_understand.png')
     if compare_img_screenshot(img,(630, 569)):
         pyautogui.click(630 + random.randrange(1,20), 569 + random.randrange(1,20))
@@ -434,14 +434,14 @@ def see_if_there_is_l_info():
         # click_one_times_please('images/i_understand.png')
         return True
     time.sleep(.5)
-    l_info_pos = imagesearch('images/l_info_headline.png', precision=0.85)
+    l_info_pos = imagesearch('images/l_info_headline.png', precision=0.85, debug = debug)
     if (l_info_pos == [-1, -1]):
         return False
     else:
         print("L info headline position: ", l_info_pos)
         for _ in range(2):
             time.sleep(.5)
-            result = click_one_times_please('images/i_understand.png')
+            result = click_one_times_please('images/i_understand.png', debug = debug)
             print("I understand , I was here #2 , result: "+str(result))
             if result:
                 return True

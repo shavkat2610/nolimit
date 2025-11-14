@@ -21,7 +21,7 @@ else:
 time.sleep(5)
 
 
-see_if_there_is_l_info()
+see_if_there_is_l_info(debug = False)
 
 time.sleep(1.5)
 

@@ -425,7 +425,7 @@ def click_two_times_please(image_path, precision = 0.95, debug = False):
     return False
 
 
-def click_one_times_please(image_path, precision=0.75,  debug = False):
+def click_one_times_please(image_path, precision=0.95,  debug = False):
     for _ in range(2):
         button_pos = imagesearch(image_path, precision=precision, debug = debug)
         # print(f"{image_path} position: ", button_pos)

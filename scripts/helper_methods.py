@@ -43,7 +43,7 @@ def compare_img_screenshot(im,pos, max_ = 50, debug = True):
                     im2.save(f'temp_{secs}_2.png')
                 return False
     if debug:
-        print('compare img successful')
+        print('compare_img_screenshot successful')
     return True
 
 

@@ -23,8 +23,8 @@ def remove_debug_imgs():
 remove_debug_imgs()
 
 
-pull_to = (5, 45)
-def_clint = [7, 45] #69, 70
+pull_to = [5, 25]
+def_clint = [8, 32] #69, 70
 
 
 # up to am max of 10

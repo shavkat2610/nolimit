@@ -63,7 +63,7 @@ returns :
 the top left corner coordinates of the element if found as an array [x,y] or [-1,-1] if not
 
 '''
-def imagesearch(image_path, precision=0.95, debug = True):
+def imagesearch(image_path, precision=0.95, debug = False):
     im = pyautogui.screenshot(region=(0, 0, 1200, 750))
     secs = time.time()
     # im2.save('temp.png')
@@ -109,8 +109,6 @@ def reset_client_window(debug = True):
     if clint_pos != [-1, -1]:
         while True:
             if clint_pos == def_clint:
-                if debug:
-                    print('client in position')
                 return True
             print("clint_pos = "+str(clint_pos))
             time.sleep(.3)

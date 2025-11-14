@@ -372,9 +372,10 @@ the top left corner coordinates of the element if found as an array [x,y] or [-1
 '''
 
 
-def imagesearcharea(image, x1, y1, x2, y2, precision=0.95, im=None):
+def imagesearcharea(image, x1, y1, width, height, precision=0.99, im=None):
     if im is None:
-        im = region_grabber(region=(x1, y1, x2, y2))
+        im = pyautogui.screenshot(region=(x1, y1, width, height))
+        # im = region_grabber(region=(x1, y1, x2, y2))
         # im.save('testarea2.png') # usefull for debugging purposes, this will save the captured region as "testarea.png"
 
     img_rgb = np.array(im)

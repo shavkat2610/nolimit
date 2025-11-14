@@ -67,10 +67,10 @@ click_ok()
 
 
 while True:
-    area = imagesearcharea('images/D.png', 600, 300, 1300, 750, precision=0.95) # read dealer position in area
+    area = imagesearcharea('images/D.png', 600, 300, 700, 450, precision=0.95) # read dealer position in area
     print("D - area: "+str(area))
     secs = time.time()
-    area = imagesearcharea('images/ingame_upleft.png', 0, 0, 1300, 750, precision=0.75)
+    area = imagesearcharea('images/ingame_upleft.png', 0, 0, 1300, 750, precision=0.95)
     print("upper left corner - area: "+str(area))
     make_screenshot_of_area(600, 300, 1300, 750, f"screenshots/debug_{secs}.png")
 #     # if open_cards():

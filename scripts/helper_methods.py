@@ -99,6 +99,8 @@ def imagesearch(image_path, precision=0.95, debug = True):
         im2 = pyautogui.screenshot(region=(max_loc[0], max_loc[1], template_gray.shape[1], template_gray.shape[0]))
         print()
         print('found at '+str(max_loc) +" - at confidence: "+str(max_val))
+        if max_val > 0.99:
+            return [max_loc[0], max_loc[1]]
         print(f'saving this (as {image_path} to memory instead: ')
         img2_rgb = np.array(im2)
         plt.imshow(img2_rgb, interpolation='nearest')

@@ -413,9 +413,9 @@ def click_two_times_please(image_path, precision = 0.95, debug = False):
     return False
 
 
-def click_one_times_please(image_path, debug = False):
+def click_one_times_please(image_path, precision=0.75,  debug = False):
     for _ in range(2):
-        button_pos = imagesearch(image_path, precision=0.85, debug = debug)
+        button_pos = imagesearch(image_path, precision=precision, debug = debug)
         # print(f"{image_path} position: ", button_pos)
         if button_pos != [-1, -1]:
             pyautogui.click(button_pos[0] + random.randrange(1,10), button_pos[1] + random.randrange(1,10))

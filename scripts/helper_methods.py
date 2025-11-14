@@ -195,7 +195,7 @@ def login():
     if compare_img_screenshot(img,(1114, 352)):
         print("already logged in ")
         return True
-    img_pos = imagesearch('images/cashier_instead.png', precision=0.95)
+    img_pos = imagesearch('images/cashier_insted.png', precision=0.95)
     if img_pos != [-1, -1]:
         print("cashier position: ", img_pos)
         print("already logged in ")

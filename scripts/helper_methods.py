@@ -309,7 +309,7 @@ def start_client_and_login():
 
     while login() == "try again":
         print("try again")
-        find_login_button_and_click()
+        # find_login_button_and_click()
     return True
 
 

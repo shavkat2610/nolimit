@@ -463,6 +463,10 @@ def see_if_there_is_l_info(debug = False):
 
 
 def push_holdem():
+    img = Image.open('images/holdem_clicked.png')
+    if compare_img_screenshot(img,(350, 142)):
+        print("Holdem already clicked.")
+        return True
     img = Image.open('images/holdem.png')
     if compare_img_screenshot(img,(350, 142)):
         pyautogui.click(350 + random.randrange(3,10), 142 + random.randrange(3,10))

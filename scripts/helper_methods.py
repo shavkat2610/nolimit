@@ -90,15 +90,18 @@ def imagesearch(image_path, precision=0.95, debug = False):
     if max_val < precision:
         print('not found')
         return [-1, -1]
-    if debug:
-        im2 = pyautogui.screenshot(region=(max_loc[0], max_loc[1], template_gray.shape[1], template_gray.shape[0]))
-        im2.save('temp7.png')
-        img2_rgb = np.array(im2)
-        plt.imshow(img2_rgb, interpolation='nearest')
-        plt.show()
-        plt.imshow(template, interpolation='nearest')
-        plt.show()
-        print('found at '+str(max_loc) +" - at confidence: "+str(max_val))
+    # if debug:
+    im2 = pyautogui.screenshot(region=(max_loc[0], max_loc[1], template_gray.shape[1], template_gray.shape[0]))
+    print()
+    print('found at '+str(max_loc) +" - at confidence: "+str(max_val))
+    print(f'saving this (as {image_path} to memory instead: ')
+    im2.save(image_path)
+    img2_rgb = np.array(im2)
+    plt.imshow(img2_rgb, interpolation='nearest')
+    plt.show()
+    print('instead of this: ')
+    plt.imshow(template, interpolation='nearest')
+    plt.show()
     return max_loc
 
 

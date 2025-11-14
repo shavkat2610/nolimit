@@ -115,7 +115,7 @@ def imagesearch(image_path, precision=0.95, debug = True):
 
 
 def reset_client_window(debug = False):
-    clint_pos = imagesearch('images/GG_icon3.png', precision=0.99, debug=debug)
+    clint_pos = imagesearch('images/GG_icon3.png', precision=0.95, debug=debug)
     if clint_pos != [-1, -1]:
         while True:
             if clint_pos == def_clint:

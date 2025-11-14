@@ -23,7 +23,7 @@ def remove_debug_imgs():
 remove_debug_imgs()
 
 
-pull_to = (5, 35)
+pull_to = (1, 25)
 def_clint = (7, 45) #69, 70
 
 
@@ -113,7 +113,7 @@ def reset_client_window(debug = True):
                 print('already in position')
             return True
         time.sleep(.3)
-        pyautogui.moveTo(clint_pos[0], clint_pos[1])
+        pyautogui.moveTo(clint_pos[0]+3, clint_pos[1]+3)
         time.sleep(.3)
         pyautogui.mouseDown()
         pyautogui.dragTo(x=def_clint[0]+50, y=def_clint[1]+50, duration=2.0, button='left')

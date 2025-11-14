@@ -24,7 +24,7 @@ remove_debug_imgs()
 
 
 pull_to = (1, 25)
-def_clint = (7, 45) #69, 70
+def_clint = [7, 45] #69, 70
 
 
 # up to am max of 10
@@ -111,6 +111,7 @@ def reset_client_window(debug = True):
             if debug:
                 print('already in position')
             return True
+        print("clint_pos = "+str(clint_pos))
         time.sleep(.3)
         pyautogui.moveTo(clint_pos[0]+3, clint_pos[1]+3)
         time.sleep(.3)
@@ -185,12 +186,12 @@ def find_login_button_and_click():
 
 
 def login():
-    time.sleep(2)
-    img = Image.open('images/cashier_insted.png')
+
+    img = Image.open('images/cashier_0.png')
     if compare_img_screenshot(img,(1114, 352)):
         print("already logged in ")
         return True
-    img_pos = imagesearch('images/cashier_insted.png', precision=0.95)
+    img_pos = imagesearch('images/cashier_0.png', precision=0.75)
     if img_pos != [-1, -1]:
         print("cashier position: ", img_pos)
         print("already logged in ")
@@ -446,8 +447,8 @@ def see_if_there_is_l_info():
 
 def push_holdem():
     img = Image.open('images/holdem.png')
-    if compare_img_screenshot(img,(350, 172)):
-        pyautogui.click(443 + random.randrange(3,10), 202 + random.randrange(3,10))
+    if compare_img_screenshot(img,(350, 142)):
+        pyautogui.click(350 + random.randrange(3,10), 142 + random.randrange(3,10))
         print("Holdem clicked.")  
         time.sleep(.5)
         return True

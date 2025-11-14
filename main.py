@@ -33,7 +33,7 @@ if push_holdem():
 
 
 def click_selection_or_exit():
-    image_path = 'images/win_munna_2.png'
+    image_path = 'images/10k.png'
     if not click_two_times_please(image_path):
         print("Could not find selection, exiting...")
         exit()

@@ -125,6 +125,7 @@ def reset_client_window(debug = True):
             pyautogui.moveTo(clint_pos[0]+3, clint_pos[1]+3)
             time.sleep(.3)
             pyautogui.mouseDown()
+            time.sleep(.3)
             pyautogui.dragTo(x=def_clint[0]+50, y=def_clint[1]+50, duration=.5, button='left')
             time.sleep(.3)
             pyautogui.dragTo(x=pull_to[0], y=pull_to[1], duration=.5, button='left')

@@ -131,6 +131,10 @@ def reset_client_window(debug = True):
 
 
 def find_login_button_and_click():
+    img = Image.open('images/cashier_0.png')
+    if compare_img_screenshot(img,(1114, 352)):
+        print("already logged in ")
+        return True
     img = Image.open('images/cashier_insted.png')
     if compare_img_screenshot(img,(1114, 352)):
         print("already logged in ")

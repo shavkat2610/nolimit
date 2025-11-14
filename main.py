@@ -37,7 +37,7 @@ if push_holdem():
 
 def click_selection_or_exit():
     image_path = 'images/10k.png'
-    if not click_two_times_please(image_path):
+    if not click_two_times_please(image_path, debug = False):
         print("Could not find selection, exiting...")
         exit()
 click_selection_or_exit()
@@ -54,7 +54,7 @@ click_one_times_please('images/join_table.png', debug=True)
 
 time.sleep(2)
 
-click_one_times_please('images/join_again.png')
+click_one_times_please('images/join_again.png', debug=True)
 
 time.sleep(2)
 

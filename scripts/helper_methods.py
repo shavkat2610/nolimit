@@ -396,9 +396,9 @@ def imagesearcharea(image, x1, y1, width, height, precision=0.99, im=None):
 
 
 
-def click_two_times_please(image_path):
+def click_two_times_please(image_path, precision = 0.95, debug = False):
     time.sleep(.5)
-    button_pos = imagesearch(image_path, precision=0.95)
+    button_pos = imagesearch(image_path, precision=precision, debug = debug)
     print(f"{image_path} position: ", button_pos)
     print("sleeping some secs...")  
     time.sleep(random.randrange(2,3))

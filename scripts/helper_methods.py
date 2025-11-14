@@ -415,7 +415,7 @@ def click_two_times_please(image_path, precision = 0.95, debug = False):
 def click_one_times_please(image_path, debug = False):
     for _ in range(2):
         button_pos = imagesearch(image_path, precision=0.85, debug = debug)
-        print(f"{image_path} position: ", button_pos)
+        # print(f"{image_path} position: ", button_pos)
         if button_pos != [-1, -1]:
             pyautogui.click(button_pos[0] + random.randrange(1,10), button_pos[1] + random.randrange(1,10))
             time.sleep(.5)
@@ -535,8 +535,8 @@ def open_cards():
     return False
 
 
-def make_screenshot_of_area(x1, y1, x2, y2, file_name):
-    im = region_grabber(region=(x1, y1, x2, y2))
+def make_screenshot_of_area(x1, y1, width, height, file_name):
+    im = region_grabber(region=(x1, y1, width, height))
     im.save(file_name)
     print(f"screenshot saved as {file_name}")
 

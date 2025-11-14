@@ -99,13 +99,13 @@ def imagesearch(image_path, precision=0.95, debug = True):
         print()
         print('found at '+str(max_loc) +" - at confidence: "+str(max_val))
         print(f'saving this (as {image_path} to memory instead: ')
-        im2.save(image_path)
         img2_rgb = np.array(im2)
         plt.imshow(img2_rgb, interpolation='nearest')
         plt.show()
         print('instead of this: ')
         plt.imshow(template, interpolation='nearest')
         plt.show()
+        im2.save(image_path)
     return max_loc
 
 

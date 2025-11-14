@@ -11,3 +11,4 @@ testarea*
 __pycache__/*
 secrets1/__pycache__
 temp*.png
+./secrets1

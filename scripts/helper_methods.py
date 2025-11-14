@@ -90,7 +90,7 @@ def imagesearch(image_path, precision=0.95, debug = True):
     if max_val < precision:
         print('not found')
         return [-1, -1]
-    im2 = pyautogui.screenshot(region=(max_loc[0], max_loc[1], template_gray.shape[0], template_gray.shape[1]))
+    im2 = pyautogui.screenshot(region=(max_loc[0], max_loc[1], template_gray.shape[1], template_gray.shape[0]))
     im2.save('temp7.png')
     img2_rgb = np.array(im2)
     if debug == True:

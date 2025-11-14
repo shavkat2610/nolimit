@@ -106,7 +106,7 @@ def imagesearch(image_path, precision=0.95, debug = True):
         plt.imshow(template, interpolation='nearest')
         plt.show()
         im2.save(image_path)
-    return max_loc
+    return [max_loc[0], max_loc[1]]
 
 
 

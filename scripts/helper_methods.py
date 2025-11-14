@@ -39,6 +39,9 @@ def compare_img_screenshot(im,pos, max_ = 50, debug = True):
             if (abs(int(im.getpixel((i,j))[0] - im2.getpixel((i,j))[0]))>9):
                 if debug:
                     print(str(im.getpixel((i,j))[0])+" and "+str(im2.getpixel((i,j))[0]) + " are not the same")
+                    print(im.getpixel((i,j)))
+                    print(im2.getpixel((i,j)))
+                    print(i, j)
                     im.save(f'temp_{secs}_1.png')
                     im2.save(f'temp_{secs}_2.png')
                 return False

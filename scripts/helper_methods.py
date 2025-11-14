@@ -107,7 +107,7 @@ def imagesearch(image_path, precision=0.95, debug = True):
 
 
 
-def reset_client_window(debug = True):
+def reset_client_window(debug = False):
     clint_pos = imagesearch('images/GG_icon3.png', precision=0.80, debug=debug)
     if clint_pos != [-1, -1]:
         while True:
@@ -195,7 +195,7 @@ def login():
     if compare_img_screenshot(img,(1114, 352)):
         print("already logged in ")
         return True
-    img_pos = imagesearch('images/cashier_0.png', precision=0.75)
+    img_pos = imagesearch('images/cashier_0.png', precision=0.95)
     if img_pos != [-1, -1]:
         print("cashier position: ", img_pos)
         print("already logged in ")
@@ -262,7 +262,7 @@ def check_if_client_running(waiting = True):
             print("GGPoker client is running.")
             return True
         time.sleep(.5)
-        clint_pos = imagesearch('images/GG_icon3.png', precision=0.75)
+        clint_pos = imagesearch('images/GG_icon3.png', precision=0.75, debug=False)
         if clint_pos != [-1, -1]:
             print('Client position found at: ', clint_pos)
             if clint_pos != def_clint:

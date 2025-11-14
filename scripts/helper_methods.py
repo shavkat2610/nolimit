@@ -506,11 +506,11 @@ def scroll_to_bottom():
 
 
 
-def click_ok():
+def click_ok(debug = False):
     for _ in range(10):
-        if click_one_times_please('images/ok.png'):
+        if click_one_times_please('images/ok.png', debug = debug):
             return True
-        time.sleep(3)
+        time.sleep(1)
     return False
 
 

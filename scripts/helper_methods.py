@@ -487,10 +487,13 @@ def push_holdem():
                 print("Holdem confirmed clicked.")
                 return True
             if imagesearch('images/holdem_clicked.png', precision=0.95, debug = True) != [-1, -1]:
-                print("Holdem confirmed clicked.")
+                print("Holdem confirmed clicked. 2")
                 return True
         else:
             print("something went wrong somehow idk dude ...")
+            if imagesearch('images/holdem_clicked.png', precision=0.99, debug = True) != [-1, -1]:
+                print("Holdem already clicked. 5")
+                return True
             push_holdem_pos = imagesearch('images/holdem.png', precision=.95, debug = True)
             see_if_there_is_l_info()
             if push_holdem_pos != [-1, -1]:

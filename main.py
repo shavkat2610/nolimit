@@ -45,7 +45,7 @@ click_selection_or_exit()
 if see_if_there_is_l_info():
     click_selection_or_exit()
 
-click_one_times_please('images/join_table.png')
+click_one_times_please('images/join_table.png', debug=True)
 
 # if see_if_there_is_l_info():
 #     click_selection_or_exit()

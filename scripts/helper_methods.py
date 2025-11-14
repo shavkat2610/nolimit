@@ -35,13 +35,9 @@ def compare_img_screenshot(im,pos, debug = True):
     im2 = pyautogui.screenshot(region=(pos[0], pos[1], width, height))
     # im2.show()
     for i in range(0, min(width, max(25, width))):
-        if debug:
-            pass
-            # print(im.getpixel((i,3))[0])
-            # print(im2.getpixel((i,3))[0])
+
         for j in range(0, min(height, max(25, height))):
             if (abs(int(im.getpixel((i,j))[0] - im2.getpixel((i,j))[0]))>=5):
-                
                 if debug:
                     print(str(im.getpixel((i,j))[0])+" and "+str(im2.getpixel((i,j))[0]) + " are not the same")
                     im.save(f'temp_{secs}_1.png')

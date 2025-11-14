@@ -56,9 +56,9 @@ time.sleep(2)
 
 click_one_times_please('images/join_again.png', debug=False)
 
-time.sleep(2)
+time.sleep(5)
 
-click_ok(debug = False)
+click_ok(debug = True)
 
 
 

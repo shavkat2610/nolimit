@@ -78,9 +78,10 @@ def imagesearch(image_path, precision=0.95, debug = True):
     template = cv2.cvtColor(template, cv2.COLOR_BGR2RGB)
     try:
         coordinates = pyautogui.locate(template, img_rgb, confidence=0.999)
-        print('pyautogui located '+image_path+' - proceeding anyways with cv.matchTemplate')
-        
-        # return [coordinates[0].__int__(), coordinates[1].__int__()]
+        if debug:
+            print('pyautogui located '+image_path+' - proceeding anyways with cv.matchTemplate')
+        else:
+            return [coordinates[0].__int__(), coordinates[1].__int__()]
     except:
         print(f'{image_path} not found at first glance')
     # plt.imshow(img2_rgb, interpolation='nearest')
@@ -431,7 +432,6 @@ def see_if_there_is_l_info(debug = False):
         pyautogui.click(630 + random.randrange(1,20), 569 + random.randrange(1,20))
         print("I Understand.")  
         time.sleep(.5)
-        print("I was here #1")
         # click_one_times_please('images/i_understand.png')
         return True
     time.sleep(.5)
@@ -457,7 +457,7 @@ def push_holdem():
         print("Holdem clicked.")  
         time.sleep(.5)
         return True
-    push_holdem_pos = imagesearch('images/holdem.png', precision=.99)
+    push_holdem_pos = imagesearch('images/holdem.png', precision=.99, debug = False)
     print("Holdem position: ", push_holdem_pos)
     for _ in range(3):
         time.sleep(.5)
@@ -469,7 +469,7 @@ def push_holdem():
             if compare_img_screenshot(img,(350, 142)):
                 print("Holdem confirmed clicked.")
                 return True
-            if imagesearch('images/holdem_clicked.png', precision=0.99) != [-1, -1]:
+            if imagesearch('images/holdem_clicked.png', precision=0.99, debug = False) != [-1, -1]:
                 print("Holdem confirmed clicked.")
                 return True
     return False

@@ -78,8 +78,9 @@ def imagesearch(image_path, precision=0.95, debug = True):
     template = cv2.cvtColor(template, cv2.COLOR_BGR2RGB)
     try:
         coordinates = pyautogui.locate(template, img_rgb, confidence=0.999)
-        print('pyautogui located '+image_path)
-        return [coordinates[0].__int__(), coordinates[1].__int__()]
+        print('pyautogui located '+image_path+' - proceeding anyways with cv.matchTemplate')
+        
+        # return [coordinates[0].__int__(), coordinates[1].__int__()]
     except:
         print(f'{image_path} not found at first glance')
     # plt.imshow(img2_rgb, interpolation='nearest')

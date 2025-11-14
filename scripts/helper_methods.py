@@ -457,7 +457,7 @@ def push_holdem():
         print("Holdem clicked.")  
         time.sleep(.5)
         return True
-    push_holdem_pos = imagesearch('images/holdem.png', precision=.85)
+    push_holdem_pos = imagesearch('images/holdem.png', precision=.95)
     print("Holdem position: ", push_holdem_pos)
     for _ in range(3):
         time.sleep(.5)

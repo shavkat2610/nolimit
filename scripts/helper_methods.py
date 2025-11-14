@@ -107,23 +107,26 @@ def imagesearch(image_path, precision=0.95, debug = True):
 def reset_client_window(debug = True):
     clint_pos = imagesearch('images/GG_icon3.png', precision=0.80, debug=debug)
     if clint_pos != [-1, -1]:
-        if clint_pos == def_clint:
-            if debug:
-                print('already in position')
-            return True
-        print("clint_pos = "+str(clint_pos))
-        time.sleep(.3)
-        pyautogui.moveTo(clint_pos[0]+3, clint_pos[1]+3)
-        time.sleep(.3)
-        pyautogui.mouseDown()
-        pyautogui.dragTo(x=def_clint[0]+50, y=def_clint[1]+50, duration=2.0, button='left')
-        time.sleep(.3)
-        pyautogui.dragTo(x=pull_to[0], y=pull_to[1], duration=2.0, button='left')
-        clint_pos = def_clint
-        time.sleep(.3)
-        pyautogui.mouseUp()
-        time.sleep(.3)
-        # time.sleep(2)
+        while True:
+            if clint_pos == def_clint:
+                if debug:
+                    print('client in position')
+                return True
+            print("clint_pos = "+str(clint_pos))
+            time.sleep(.3)
+            pyautogui.moveTo(clint_pos[0]+3, clint_pos[1]+3)
+            time.sleep(.3)
+            pyautogui.mouseDown()
+            pyautogui.dragTo(x=def_clint[0]+50, y=def_clint[1]+50, duration=2.0, button='left')
+            time.sleep(.3)
+            pyautogui.dragTo(x=pull_to[0], y=pull_to[1], duration=2.0, button='left')
+            time.sleep(.3)
+            pyautogui.mouseUp()
+            time.sleep(.3)
+            clint_pos = imagesearch('images/GG_icon3.png', precision=0.80, debug=debug)
+            if clint_pos == def_clint:
+                return True
+            # time.sleep(2)
     else:
         print("reset window failed to locate GG_icon")
         return False

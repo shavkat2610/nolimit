@@ -23,7 +23,7 @@ def remove_debug_imgs():
 remove_debug_imgs()
 
 
-pull_to = (1, 25)
+pull_to = (5, 45)
 def_clint = [7, 45] #69, 70
 
 

@@ -63,7 +63,7 @@ returns :
 the top left corner coordinates of the element if found as an array [x,y] or [-1,-1] if not
 
 '''
-def imagesearch(image_path, precision=0.95, debug = False):
+def imagesearch(image_path, precision=0.95, debug = True):
     im = pyautogui.screenshot(region=(0, 0, 1200, 750))
     secs = time.time()
     # im2.save('temp.png')
@@ -90,18 +90,18 @@ def imagesearch(image_path, precision=0.95, debug = False):
     if max_val < precision:
         print('not found')
         return [-1, -1]
-    # if debug:
-    im2 = pyautogui.screenshot(region=(max_loc[0], max_loc[1], template_gray.shape[1], template_gray.shape[0]))
-    print()
-    print('found at '+str(max_loc) +" - at confidence: "+str(max_val))
-    print(f'saving this (as {image_path} to memory instead: ')
-    im2.save(image_path)
-    img2_rgb = np.array(im2)
-    plt.imshow(img2_rgb, interpolation='nearest')
-    plt.show()
-    print('instead of this: ')
-    plt.imshow(template, interpolation='nearest')
-    plt.show()
+    if debug:
+        im2 = pyautogui.screenshot(region=(max_loc[0], max_loc[1], template_gray.shape[1], template_gray.shape[0]))
+        print()
+        print('found at '+str(max_loc) +" - at confidence: "+str(max_val))
+        print(f'saving this (as {image_path} to memory instead: ')
+        im2.save(image_path)
+        img2_rgb = np.array(im2)
+        plt.imshow(img2_rgb, interpolation='nearest')
+        plt.show()
+        print('instead of this: ')
+        plt.imshow(template, interpolation='nearest')
+        plt.show()
     return max_loc
 
 

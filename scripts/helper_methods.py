@@ -477,6 +477,7 @@ def push_holdem():
         if push_holdem_pos != [-1, -1]:
             pyautogui.click(push_holdem_pos[0] + random.randrange(3,10), push_holdem_pos[1] + random.randrange(3,10))
             print("Holdem clicked.")
+            time.sleep(.5)
             img = Image.open('images/holdem_clicked.png')
             if compare_img_screenshot(img,(350, 142)):
                 print("Holdem confirmed clicked.")
@@ -484,6 +485,21 @@ def push_holdem():
             if imagesearch('images/holdem_clicked.png', precision=0.99, debug = False) != [-1, -1]:
                 print("Holdem confirmed clicked.")
                 return True
+        else:
+            print("something went wrong somehow idk dude ...")
+            push_holdem_pos = imagesearch('images/holdem.png', precision=.95, debug = True)
+            see_if_there_is_l_info()
+            if push_holdem_pos != [-1, -1]:
+                pyautogui.click(push_holdem_pos[0] + random.randrange(3,10), push_holdem_pos[1] + random.randrange(3,10))
+                print("Holdem clicked.")
+                time.sleep(.5)
+                img = Image.open('images/holdem_clicked.png')
+                if compare_img_screenshot(img,(350, 142)):
+                    print("Holdem confirmed clicked.")
+                    return True
+                if imagesearch('images/holdem_clicked.png', precision=0.99, debug = False) != [-1, -1]:
+                    print("Holdem confirmed clicked.")
+                    return True
     return False
 
 

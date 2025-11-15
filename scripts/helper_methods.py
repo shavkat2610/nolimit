@@ -481,7 +481,7 @@ def push_holdem():
         print("Holdem clicked.")  
         time.sleep(.5)
         return True
-    push_holdem_pos = imagesearch('images/holdem.png', precision=.99, debug = False)
+    push_holdem_pos = imagesearch('images/holdem.png', precision=.90, debug = False)
     print("Holdem position: ", push_holdem_pos)
     for _ in range(3):
         time.sleep(.5)
@@ -494,15 +494,15 @@ def push_holdem():
             if compare_img_screenshot(img,(350, 142)):
                 print("Holdem confirmed clicked.")
                 return True
-            if imagesearch('images/holdem_clicked.png', precision=0.99, debug = False) != [-1, -1]:
+            if imagesearch('images/holdem_clicked.png', precision=0.90, debug = False) != [-1, -1]:
                 print("Holdem confirmed clicked. 2")
                 return True
         else:
             print("something went wrong somehow idk dude ...")
-            if imagesearch('images/holdem_clicked.png', precision=0.99, debug = False) != [-1, -1]:
+            if imagesearch('images/holdem_clicked.png', precision=0.90, debug = False) != [-1, -1]:
                 print("Holdem already clicked. 5")
                 return True
-            push_holdem_pos = imagesearch('images/holdem.png', precision=.99, debug = False)
+            push_holdem_pos = imagesearch('images/holdem.png', precision=.90, debug = False)
             see_if_there_is_l_info()
             if push_holdem_pos != [-1, -1]:
                 pyautogui.click(push_holdem_pos[0] + random.randrange(3,10), push_holdem_pos[1] + random.randrange(3,10))
@@ -512,7 +512,7 @@ def push_holdem():
                 if compare_img_screenshot(img,(350, 142)):
                     print("Holdem confirmed clicked.")
                     return True
-                if imagesearch('images/holdem_clicked.png', precision=0.99, debug = False) != [-1, -1]:
+                if imagesearch('images/holdem_clicked.png', precision=0.90, debug = False) != [-1, -1]:
                     print("Holdem confirmed clicked.")
                     return True
     return False

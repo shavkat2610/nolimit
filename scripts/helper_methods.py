@@ -590,6 +590,7 @@ def read_game_rules():
     if game_rules_pos == [-1, -1]:
         print("game seems to not have rules ...")
         return False
+    pyautogui.moveTo(0, 0)
     print("game_rules_pos = "+str(game_rules_pos))
     time.sleep(.3)
     pyautogui.moveTo(game_rules_pos[0], game_rules_pos[1]+3)

@@ -72,7 +72,7 @@ while True:
     secs = time.time()
     area = imagesearcharea('images/ingame_upleft.png', 0, 0, 1300, 750, precision=0.95)
     print("upper left corner - area: "+str(area))
-    make_screenshot_of_area(600, 300, 700, 450, file_name=f"screenshots/debug_{secs}.png")
+    make_screenshot_of_area(0, 0, 1100, 900, file_name=f"screenshots/debug_{secs}.png")
 #     # if open_cards():
 #     #     time.sleep(2)
 #     # fold()

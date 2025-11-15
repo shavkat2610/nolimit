@@ -114,13 +114,8 @@ def imagesearch(image_path, precision=0.95, debug = False):
 
 
 
-<<<<<<< HEAD
-def reset_client_window(debug = True):
-    clint_pos = imagesearch('images/GG_icon3_dark.png', precision=0.8, debug=debug)
-=======
 def reset_client_window(debug = False):
     clint_pos = imagesearch('images/GG_icon3.png', precision=0.8, debug=debug)
->>>>>>> 4257b75252f604a0fcdb13786d5ff448faac6f1a
     if clint_pos != [-1, -1]:
         while True:
             if clint_pos == def_clint:
@@ -137,11 +132,7 @@ def reset_client_window(debug = False):
             time.sleep(.3)
             pyautogui.mouseUp()
             time.sleep(.3)
-<<<<<<< HEAD
-            clint_pos = imagesearch('images/GG_icon3_dark.png', precision=0.8, debug=debug)
-=======
             clint_pos = imagesearch('images/GG_icon3.png', precision=0.8, debug=debug)
->>>>>>> 4257b75252f604a0fcdb13786d5ff448faac6f1a
             if clint_pos == def_clint:
                 return True
             # time.sleep(2)

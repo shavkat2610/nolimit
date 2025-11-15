@@ -469,7 +469,6 @@ def see_if_there_is_l_info(debug = False):
         return False
 
 
-
 def push_holdem():
     img = Image.open('images/holdem_clicked.png')
     if compare_img_screenshot(img,(350, 142)):

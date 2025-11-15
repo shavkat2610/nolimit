@@ -66,7 +66,7 @@ returns :
 the top left corner coordinates of the element if found as an array [x,y] or [-1,-1] if not
 
 '''
-def imagesearch(image_path, precision=0.95, debug = False):
+def imagesearch(image_path, precision=0.95, debug = True):
     im = pyautogui.screenshot(region=(0, 0, 1400, 850))
     secs = time.time()
     # im2.save('temp.png')
@@ -108,7 +108,7 @@ def imagesearch(image_path, precision=0.95, debug = False):
         print('instead of this: ')
         plt.imshow(template, interpolation='nearest')
         plt.show()
-        im2.save(image_path)
+        im2.save(image_path[:-4]+"_new.png")
     return [max_loc[0], max_loc[1]]
 
 
@@ -624,6 +624,7 @@ def screenshot_area(point = (50, 50), size = [250, 250], file_name = "temp.png")
     # secs = time.time()
     # im2 = pyautogui.screenshot(region=(8, 32, 50, 50))
     im.save(file_name)
+    return im
 
 
 
@@ -633,14 +634,15 @@ def init_gui():
 dgrp = [769, 41]
 def read_game_rules(debug = False):
     # pyautogui.moveTo(1700, 500)
-    time.sleep(3)
     game_rules_pos = imagesearch('images/game_rules.png', precision=0.90, debug=debug)
     if game_rules_pos == [-1, -1]:
-        print("game seems to not have rules ...")
-        return False
+        while game_rules_pos == [-1, -1]:
+            time.sleep(3)
+            print("game seems to not have rules ...")
+            game_rules_pos = imagesearch('images/game_rules.png', precision=0.90, debug=debug)
     print("game_rules_pos = "+str(game_rules_pos))
     time.sleep(.3)
-    if game_rules_pos != dgrp:
+    while game_rules_pos != dgrp:
         pyautogui.moveTo(game_rules_pos[0]-300, game_rules_pos[1]+5)
         # screenshot_area((game_rules_pos[0]-300, game_rules_pos[1]+5))
         # exit()
@@ -653,3 +655,9 @@ def read_game_rules(debug = False):
         time.sleep(.3)
         pyautogui.mouseUp()
         time.sleep(.3)
+        game_rules_pos = imagesearch('images/game_rules.png', precision=0.90, debug=debug)
+
+
+
+
+

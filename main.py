@@ -12,22 +12,24 @@ import glob
 big_blind = 200
 
 
-remove_debug_imgs()
+# remove_debug_imgs()
 
 
 # start(big_blind = big_blind)
 
 
 
+read_game_rules(debug = False)
+
 
 # in game loop
 while True:
-    read_game_rules(debug = False)
+    
     # screenshot_area(point = (200, 200), size = [150, 150], file_name="temp2.png")
-    # area = imagesearcharea('images/D.png', 600, 300, 700, 450, precision=0.95) # read dealer position in area
-    # print("D - area: "+str(area))
     secs = time.time()
-    screenshot_area(point = (0, 100), size = [800, 530], file_name=f"temp_screenshot_{str(secs).split(".")[0]}.png")
+    im = screenshot_area(point = (0, 100), size = [800, 530], file_name=f"temp_screenshot_{str(secs).split(".")[0]}.png")
+    area = imagesearcharea('images/D.png', 0, 100, 800, 530, precision=0.95, im = im) # read dealer position in area
+    print("D - area: "+str(area))
     # area = imagesearcharea('images/ingame_upleft.png', 0, 0, 1300, 750, precision=0.95)
     # print("upper left corner - area: "+str(area))
     # make_screenshot_of_area(0, 0, 1100, 900, file_name=f"screenshots/debug_{secs}.png")

@@ -15,7 +15,7 @@ big_blind = 200
 # remove_debug_imgs()
 
 
-# start(big_blind = big_blind)
+start(big_blind = big_blind)
 
 
 
@@ -25,17 +25,22 @@ read_game_rules(debug = False)
 # in game loop
 while True:
     
-    # screenshot_area(point = (200, 200), size = [150, 150], file_name="temp2.png")
+
     secs = time.time()
+
+    #in-game screenshot
     im = screenshot_area(point = (0, 100), size = [800, 530], file_name=f"temp_screenshot_{str(secs).split(".")[0]}.png")
+
     area = imagesearcharea('images/D.png', 0, 100, 800, 530, precision=0.95, im = im) # read dealer position in area
     print("D - area: "+str(area))
-    # print("upper left corner - area: "+str(area))
-    # make_screenshot_of_area(0, 0, 1100, 900, file_name=f"screenshots/debug_{secs}.png")
-#     # if open_cards():
-#     #     time.sleep(2)
-#     # fold()
-#     # mouse.move(1400 + random.randrange(1,400) , 900 + random.randrange(1,100), absolute=True, duration=0.01)
+
+    pix = pyautogui.pixel(area[0]+3, area[1]+3)
+    print('pix: '+str(pix))
+    # pyautogui.pixelMatchesColor(area[0]+3, area[1]+3)
+    # if open_cards():
+    #     time.sleep(2)
+    # fold()
+    pyautogui.moveTo(1700, 950, duration=0.2)
     time.sleep(10)
 
 

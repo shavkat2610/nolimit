@@ -605,7 +605,9 @@ def read_game_rules():
         return False
     print("game_rules_pos = "+str(game_rules_pos))
     time.sleep(.3)
-    pyautogui.moveTo(game_rules_pos[0], game_rules_pos[1]+3)
+    pyautogui.moveTo(game_rules_pos[0]-100, game_rules_pos[1]+5)
+    make_screenshot_of_area(game_rules_pos[0]-100, game_rules_pos[1]+5)
+    exit()
     time.sleep(.3)
     pyautogui.mouseDown()
     time.sleep(.3)

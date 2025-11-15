@@ -4,7 +4,7 @@ import time
 import numpy as np
 import cv2
 from scripts.helper_methods import click_ok, compare_img, fold, imagesearch, check_if_client_running, find_login_button_and_click, imagesearcharea, \
-                                        login, make_screenshot_of_area, read_game_rules, see_if_there_is_l_info, push_holdem, scroll_to_bottom, click_two_times_please, \
+                                        login, make_screenshot_of_area, read_game_rules, screenshot_area, see_if_there_is_l_info, push_holdem, scroll_to_bottom, click_two_times_please, \
                                             click_one_times_please, start_client_and_login, open_cards
 import random
 
@@ -68,6 +68,7 @@ click_ok(debug = True)
 
 while True:
     read_game_rules()
+    screenshot_area(point = (50, 50), size = [150, 150], file_name="temp.png")
     # area = imagesearcharea('images/D.png', 600, 300, 700, 450, precision=0.95) # read dealer position in area
     # print("D - area: "+str(area))
     # secs = time.time()

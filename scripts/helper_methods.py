@@ -583,6 +583,13 @@ def make_screenshot_of_area(x1, y1, x2, y2, file_name):
     im.save(file_name)
     print(f"screenshot saved as {file_name}")
 
+def screenshot_area(point = (50, 50), size = [150, 150], file_name = "temp.png"):
+    time.sleep(3.5)
+    im = pyautogui.screenshot(region=(point[0], point[1], size[0], size[1]))
+    # secs = time.time()
+    # im2 = pyautogui.screenshot(region=(8, 32, 50, 50))
+    im.save(file_name)
+
 
 
 def init_gui():

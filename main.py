@@ -36,7 +36,7 @@ if push_holdem():
 
 
 def click_selection_or_exit():
-    image_path = 'images/10k.png'
+    image_path = 'images/5k.png'
     if not click_two_times_please(image_path, debug = False):
         print("Could not find selection, exiting...")
         exit()

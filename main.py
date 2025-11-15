@@ -24,7 +24,7 @@ read_game_rules(debug = False)
 
 # in game loop
 while True:
-    
+    # todo : measure time for screenshot vs. getting pixel value
 
     secs = time.time()
 

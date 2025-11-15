@@ -22,7 +22,7 @@ remove_debug_imgs()
 
 # in game loop
 while True:
-    read_game_rules()
+    read_game_rules(debug = False)
     # screenshot_area(point = (200, 200), size = [150, 150], file_name="temp2.png")
     # area = imagesearcharea('images/D.png', 600, 300, 700, 450, precision=0.95) # read dealer position in area
     # print("D - area: "+str(area))

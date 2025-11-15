@@ -630,25 +630,26 @@ def screenshot_area(point = (50, 50), size = [250, 250], file_name = "temp.png")
 def init_gui():
     pass
 
-ggrp = [555, 56]
-def read_game_rules():
+dgrp = [777, 41]
+def read_game_rules(debug = False):
     # pyautogui.moveTo(1700, 500)
     time.sleep(3)
-    game_rules_pos = imagesearch('images/game_rules.png', precision=0.75, debug=True)
+    game_rules_pos = imagesearch('images/game_rules.png', precision=0.90, debug=debug)
     if game_rules_pos == [-1, -1]:
         print("game seems to not have rules ...")
         return False
     print("game_rules_pos = "+str(game_rules_pos))
     time.sleep(.3)
-    pyautogui.moveTo(game_rules_pos[0]-100, game_rules_pos[1]+5)
-    screenshot_area((game_rules_pos[0]-100, game_rules_pos[1]+5))
-    exit()
-    time.sleep(.3)
-    pyautogui.mouseDown()
-    time.sleep(.3)
-    pyautogui.dragTo(x=600, y=200, duration=.5, button='left')
-    time.sleep(.3)
-    pyautogui.dragTo(x=ggrp[0], y=ggrp[1]+3, duration=.5, button='left')
-    time.sleep(.3)
-    pyautogui.mouseUp()
-    time.sleep(.3)
+    if game_rules_pos != dgrp:
+        pyautogui.moveTo(game_rules_pos[0]-300, game_rules_pos[1]+5)
+        # screenshot_area((game_rules_pos[0]-300, game_rules_pos[1]+5))
+        # exit()
+        time.sleep(.3)
+        pyautogui.mouseDown()
+        time.sleep(.3)
+        pyautogui.dragTo(x=600, y=200, duration=1.5, button='left')
+        time.sleep(.3)
+        pyautogui.dragTo(x=dgrp[0]-300, y=dgrp[1]+5, duration=1.5, button='left')
+        time.sleep(.3)
+        pyautogui.mouseUp()
+        time.sleep(.3)

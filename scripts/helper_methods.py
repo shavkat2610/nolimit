@@ -287,6 +287,8 @@ def check_if_client_running(waiting = True):
                 reset_client_window()
             else: pyautogui.click(clint_pos[0], clint_pos[1])
             return True
+        else:
+            reset_client_window()
         
     print("GGPoker client is not running.")
     return False
@@ -306,6 +308,8 @@ def start_client_and_login():
     if not check_if_client_running():
         print("Client is not running!")
         exit()
+        
+    reset_client_window(debug = False)
 
     while login() == "try again":
         print("try again")
@@ -586,11 +590,12 @@ def init_gui():
 
 ggrp = [555, 56]
 def read_game_rules():
+    pyautogui.moveTo(50, 50)
+    time.sleep(.3)
     game_rules_pos = imagesearch('images/game_rules.png', precision=0.8, debug=False)
     if game_rules_pos == [-1, -1]:
         print("game seems to not have rules ...")
         return False
-    pyautogui.moveTo(0, 0)
     print("game_rules_pos = "+str(game_rules_pos))
     time.sleep(.3)
     pyautogui.moveTo(game_rules_pos[0], game_rules_pos[1]+3)

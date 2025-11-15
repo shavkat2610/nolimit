@@ -557,7 +557,7 @@ def click_ok(debug = False):
     return False
 
 
-def start():
+def start(big_blind = 200):
     time.sleep(2)
     if not check_if_client_running(waiting=False):
         print("starting up client and logging in...")
@@ -571,11 +571,14 @@ def start():
         see_if_there_is_l_info()
         scroll_to_bottom()
 
-    def click_selection_or_exit():
-        image_path = 'images/5k.png'
-        if not click_two_times_please(image_path, debug = False):
-            print("Could not find selection, exiting...")
-            exit()
+    def click_selection_or_exit(big_blind=200):
+        if big_blind == 200:
+            image_path = 'images/5k.png'
+            if not click_two_times_please(image_path, debug = False):
+                print("Could not find selection, exiting...")
+                exit()
+        else:
+            pass #todo
     click_selection_or_exit()
     if see_if_there_is_l_info():
         click_selection_or_exit()

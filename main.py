@@ -8,9 +8,9 @@ from scripts.helper_methods import click_ok, compare_img, fold, imagesearch, che
                                             click_one_times_please, start_client_and_login, open_cards, start
 import random
 
-big_blind = 500
+big_blind = 200
 
-start()
+start(big_blind = big_blind)
 
 
 

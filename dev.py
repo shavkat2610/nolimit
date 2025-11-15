@@ -14,12 +14,12 @@ from scripts.helper_methods import imagesearch, reset_client_window, def_clint
 def screenshot_area(point = (0, 0)):
     time.sleep(6.5)
     # reset_client_window(debug=False)
-    im = pyautogui.screenshot(region=(point[0], point[1], 1100, 400))
+    im = pyautogui.screenshot(region=(point[0], point[1], 370, 30))
     # secs = time.time()
     # im2 = pyautogui.screenshot(region=(8, 32, 50, 50))
     im.save('temp31.png')
 
-screenshot_area(point=[350, 100])
+screenshot_area(point=[500, 54])
 
 
 

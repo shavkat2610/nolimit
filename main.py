@@ -18,7 +18,7 @@ start()
 # in game loop
 while True:
     read_game_rules()
-    screenshot_area(point = (50, 50), size = [150, 150], file_name="temp2.png")
+    screenshot_area(point = (200, 200), size = [150, 150], file_name="temp2.png")
     # area = imagesearcharea('images/D.png', 600, 300, 700, 450, precision=0.95) # read dealer position in area
     # print("D - area: "+str(area))
     # secs = time.time()

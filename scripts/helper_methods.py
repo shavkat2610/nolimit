@@ -24,11 +24,11 @@ remove_debug_imgs()
 
 
 pull_to = [5, 25]
-def_clint = [8, 32] #69, 70
+def_clint = [7, 45] #69, 70
 
 
 # up to am max of 10
-def compare_img_screenshot(im,pos, max_ = 50, debug = True):
+def compare_img_screenshot(im,pos, max_ = 50, debug = True, debug_2 = False):
     # saving both if unsuccessful
     width, height = im.size
     secs = time.time()
@@ -37,7 +37,7 @@ def compare_img_screenshot(im,pos, max_ = 50, debug = True):
     for i in range(0, min(width, max(max_, width))):
         for j in range(0, min(height, max(max_, height))):
             if (abs(int(im.getpixel((i,j))[0] - im2.getpixel((i,j))[0]))>9):
-                if debug:
+                if debug_2:
                     print(str(im.getpixel((i,j))[0])+" and "+str(im2.getpixel((i,j))[0]) + " are not the same")
                     print(im.getpixel((i,j)))
                     print(im2.getpixel((i,j)))
@@ -66,7 +66,7 @@ returns :
 the top left corner coordinates of the element if found as an array [x,y] or [-1,-1] if not
 
 '''
-def imagesearch(image_path, precision=0.95, debug = True):
+def imagesearch(image_path, precision=0.95, debug = False):
     im = pyautogui.screenshot(region=(0, 0, 1200, 850))
     secs = time.time()
     # im2.save('temp.png')
@@ -114,8 +114,13 @@ def imagesearch(image_path, precision=0.95, debug = True):
 
 
 
+<<<<<<< HEAD
 def reset_client_window(debug = True):
     clint_pos = imagesearch('images/GG_icon3_dark.png', precision=0.8, debug=debug)
+=======
+def reset_client_window(debug = False):
+    clint_pos = imagesearch('images/GG_icon3.png', precision=0.8, debug=debug)
+>>>>>>> 4257b75252f604a0fcdb13786d5ff448faac6f1a
     if clint_pos != [-1, -1]:
         while True:
             if clint_pos == def_clint:
@@ -132,7 +137,11 @@ def reset_client_window(debug = True):
             time.sleep(.3)
             pyautogui.mouseUp()
             time.sleep(.3)
+<<<<<<< HEAD
             clint_pos = imagesearch('images/GG_icon3_dark.png', precision=0.8, debug=debug)
+=======
+            clint_pos = imagesearch('images/GG_icon3.png', precision=0.8, debug=debug)
+>>>>>>> 4257b75252f604a0fcdb13786d5ff448faac6f1a
             if clint_pos == def_clint:
                 return True
             # time.sleep(2)

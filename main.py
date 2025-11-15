@@ -5,10 +5,15 @@ import numpy as np
 import cv2
 from scripts.helper_methods import click_ok, compare_img, fold, imagesearch, check_if_client_running, find_login_button_and_click, imagesearcharea, \
                                         login, make_screenshot_of_area, read_game_rules, screenshot_area, see_if_there_is_l_info, push_holdem, scroll_to_bottom, click_two_times_please, \
-                                            click_one_times_please, start_client_and_login, open_cards, start
+                                            click_one_times_please, start_client_and_login, open_cards, start, remove_debug_imgs
 import random
+import glob
 
 big_blind = 200
+
+
+remove_debug_imgs()
+
 
 # start(big_blind = big_blind)
 
@@ -18,10 +23,11 @@ big_blind = 200
 # in game loop
 while True:
     read_game_rules()
-    screenshot_area(point = (200, 200), size = [150, 150], file_name="temp2.png")
+    # screenshot_area(point = (200, 200), size = [150, 150], file_name="temp2.png")
     # area = imagesearcharea('images/D.png', 600, 300, 700, 450, precision=0.95) # read dealer position in area
     # print("D - area: "+str(area))
-    # secs = time.time()
+    secs = time.time()
+    screenshot_area(point = (1060, 290), size = [230, 50], file_name=f"temp_{secs}.png")
     # area = imagesearcharea('images/ingame_upleft.png', 0, 0, 1300, 750, precision=0.95)
     # print("upper left corner - area: "+str(area))
     # make_screenshot_of_area(0, 0, 1100, 900, file_name=f"screenshots/debug_{secs}.png")

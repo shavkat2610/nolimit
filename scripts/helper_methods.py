@@ -13,18 +13,18 @@ from matplotlib import pyplot as plt
 # import pyperclip
 import glob
 
-def remove_debug_imgs():
-    removing_files = glob.glob('temp_*_1.png')
-    removing_files_0 = glob.glob('temp_*_2.png')
-    for i in removing_files:
-        os.remove(i)
-    for i in removing_files_0:
-        os.remove(i)
-remove_debug_imgs()
+
 
 
 pull_to = [5, 25]
 def_clint = [7, 45] #69, 70
+
+
+def remove_debug_imgs():
+    removing_files = glob.glob('temp_*.png')
+    # removing_files_0 = glob.glob('temp_*.png')
+    for i in removing_files:
+        os.remove(i)
 
 
 # up to am max of 10
@@ -634,7 +634,7 @@ ggrp = [555, 56]
 def read_game_rules():
     pyautogui.moveTo(1700, 500)
     time.sleep(3)
-    game_rules_pos = imagesearch('images/game_rules.png', precision=0.8, debug=False)
+    game_rules_pos = imagesearch('images/game_rules.png', precision=0.75, debug=True)
     if game_rules_pos == [-1, -1]:
         print("game seems to not have rules ...")
         return False

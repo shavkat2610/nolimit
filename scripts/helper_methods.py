@@ -584,7 +584,7 @@ def make_screenshot_of_area(x1, y1, x2, y2, file_name):
 def init_gui():
     pass
 
-ggrp = [555, 54]
+ggrp = [555, 56]
 def read_game_rules():
     game_rules_pos = imagesearch('images/game_rules.png', precision=0.8, debug=False)
     if game_rules_pos == [-1, -1]:
@@ -598,7 +598,7 @@ def read_game_rules():
     time.sleep(.3)
     pyautogui.dragTo(x=600, y=200, duration=.5, button='left')
     time.sleep(.3)
-    pyautogui.dragTo(x=500, y=59, duration=.5, button='left')
+    pyautogui.dragTo(x=ggrp[0], y=ggrp[1]+3, duration=.5, button='left')
     time.sleep(.3)
     pyautogui.mouseUp()
     time.sleep(.3)

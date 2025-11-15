@@ -632,9 +632,9 @@ def init_gui():
 
 ggrp = [555, 56]
 def read_game_rules():
-    pyautogui.moveTo(1700, 500)
+    # pyautogui.moveTo(1700, 500)
     time.sleep(3)
-    game_rules_pos = imagesearch('images/game_rules.png', precision=0.75, debug=True)
+    game_rules_pos = imagesearch('images/game_rules.png', precision=0.95, debug=True)
     if game_rules_pos == [-1, -1]:
         print("game seems to not have rules ...")
         return False

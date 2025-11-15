@@ -67,7 +67,7 @@ the top left corner coordinates of the element if found as an array [x,y] or [-1
 
 '''
 def imagesearch(image_path, precision=0.95, debug = False):
-    im = pyautogui.screenshot(region=(0, 0, 1200, 850))
+    im = pyautogui.screenshot(region=(0, 0, 1400, 850))
     secs = time.time()
     # im2.save('temp.png')
     # im.save(f'testarea7_{secs}.png') # useful for debugging purposes, this will save the captured region as "testarea.png"
@@ -634,7 +634,7 @@ ggrp = [555, 56]
 def read_game_rules():
     # pyautogui.moveTo(1700, 500)
     time.sleep(3)
-    game_rules_pos = imagesearch('images/game_rules.png', precision=0.95, debug=True)
+    game_rules_pos = imagesearch('images/game_rules.png', precision=0.75, debug=True)
     if game_rules_pos == [-1, -1]:
         print("game seems to not have rules ...")
         return False

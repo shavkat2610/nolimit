@@ -10,38 +10,6 @@ import random
 
 big_blind = 500
 
-def start():
-    time.sleep(2)
-    if not check_if_client_running(waiting=False):
-        print("starting up client and logging in...")
-        start_client_and_login()
-    else:
-        login()
-    time.sleep(5)
-    see_if_there_is_l_info(debug = False)
-    if push_holdem():
-        time.sleep(.5)
-        see_if_there_is_l_info()
-        scroll_to_bottom()
-
-    def click_selection_or_exit():
-        image_path = 'images/5k.png'
-        if not click_two_times_please(image_path, debug = False):
-            print("Could not find selection, exiting...")
-            exit()
-    click_selection_or_exit()
-    if see_if_there_is_l_info():
-        click_selection_or_exit()
-    click_one_times_please('images/join_table.png', debug=False)
-    # if see_if_there_is_l_info():
-    #     click_selection_or_exit()
-    #     click_one_times_please('images/join_table.png')
-    #     see_if_there_is_l_info()
-    time.sleep(1)
-    click_one_times_please('images/join_again.png', debug=False)
-    time.sleep(5)
-    click_ok(debug = True)  
-
 start()
 
 

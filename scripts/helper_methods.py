@@ -630,7 +630,7 @@ def screenshot_area(point = (50, 50), size = [250, 250], file_name = "temp.png")
 def init_gui():
     pass
 
-dgrp = [777, 41]
+dgrp = [769, 41]
 def read_game_rules(debug = False):
     # pyautogui.moveTo(1700, 500)
     time.sleep(3)

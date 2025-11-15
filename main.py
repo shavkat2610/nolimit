@@ -10,7 +10,7 @@ import random
 
 big_blind = 200
 
-start(big_blind = big_blind)
+# start(big_blind = big_blind)
 
 
 

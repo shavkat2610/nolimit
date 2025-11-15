@@ -583,7 +583,7 @@ def make_screenshot_of_area(x1, y1, x2, y2, file_name):
     im.save(file_name)
     print(f"screenshot saved as {file_name}")
 
-def screenshot_area(point = (50, 50), size = [150, 150], file_name = "temp.png"):
+def screenshot_area(point = (50, 50), size = [250, 250], file_name = "temp.png"):
     time.sleep(3.5)
     im = pyautogui.screenshot(region=(point[0], point[1], size[0], size[1]))
     # secs = time.time()
@@ -597,8 +597,8 @@ def init_gui():
 
 ggrp = [555, 56]
 def read_game_rules():
-    pyautogui.moveTo(50, 50)
-    time.sleep(.3)
+    pyautogui.moveTo(1700, 500)
+    time.sleep(3)
     game_rules_pos = imagesearch('images/game_rules.png', precision=0.8, debug=False)
     if game_rules_pos == [-1, -1]:
         print("game seems to not have rules ...")

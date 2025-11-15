@@ -574,8 +574,8 @@ def open_cards():
     return False
 
 
-def make_screenshot_of_area(x1, y1, width, height, file_name):
-    im = region_grabber(region=(x1, y1, width, height))
+def make_screenshot_of_area(x1, y1, x2, y2, file_name):
+    im = region_grabber(region=(x1, y1, x2, y2))
     im.save(file_name)
     print(f"screenshot saved as {file_name}")
 
@@ -583,3 +583,22 @@ def make_screenshot_of_area(x1, y1, width, height, file_name):
 
 def init_gui():
     pass
+
+ggrp = [555, 54]
+def read_game_rules():
+    game_rules_pos = imagesearch('images/game_rules.png', precision=0.8, debug=False)
+    if game_rules_pos == [-1, -1]:
+        print("game seems to not have rules ...")
+        return False
+    print("game_rules_pos = "+str(game_rules_pos))
+    time.sleep(.3)
+    pyautogui.moveTo(game_rules_pos[0], game_rules_pos[1]+3)
+    time.sleep(.3)
+    pyautogui.mouseDown()
+    time.sleep(.3)
+    pyautogui.dragTo(x=600, y=200, duration=.5, button='left')
+    time.sleep(.3)
+    pyautogui.dragTo(x=500, y=59, duration=.5, button='left')
+    time.sleep(.3)
+    pyautogui.mouseUp()
+    time.sleep(.3)

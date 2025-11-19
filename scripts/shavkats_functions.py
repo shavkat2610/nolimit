@@ -530,7 +530,7 @@ def click_ok(debug = False):
         button_pos = imagesearch(image_path, precision=0.95, debug = debug, calling_function="click_one_times_please")
         # print(f"{image_path} position: ", button_pos)
         if button_pos != [-1, -1]:
-            pyautogui.click(button_pos[0] + random.randrange(10,14), button_pos[1] + random.randrange(10,14))
+            pyautogui.click(button_pos[0] + random.randrange(1,14), button_pos[1] + random.randrange(1,14))
             time.sleep(.5)
             print(f"{image_path} clicked 1x.")
             return True
@@ -597,12 +597,12 @@ def read_game_rules(big_blind = 200, debug = False):
     
     click_one_times_please('images/join_table.png', debug=False) # debug false !
     time.sleep(3)
-    z1 = pygetwindow.getAllTitles()
-    print("z1 length: "+str(len(z1)))
-    print(z1)
+    # z1 = pygetwindow.getAllTitles()
+    # print("z1 length: "+str(len(z1)))
+    # print(z1)
      # check if new window appeared
     click_one_times_please('images/join_again.png', debug=False) # debug false !
-    time.sleep(20)
+    time.sleep(10)
     # z2 = pygetwindow.getAllTitles()
     # print("z2 length: "+str(len(z2)))
     # print(z2)
@@ -617,9 +617,8 @@ def read_game_rules(big_blind = 200, debug = False):
     # Posted by Rich Drake
     # Retrieved 2025-11-19, License - CC BY-SA 3.0
 
-    time.sleep(1)
     # get window, place in the top left corner
-    click_ok(debug = False)  
+    click_ok(debug = True)  
     # pyautogui.moveTo(1700, 500)
 
 

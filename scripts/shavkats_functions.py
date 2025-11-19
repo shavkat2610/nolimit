@@ -581,7 +581,7 @@ def screenshot_area(point = (50, 50), size = [250, 250], file_name = "temp.png")
 
 
 import pygetwindow
-dgrp = [350, 37]
+dgrp = [450, 37]
 def read_game_rules(big_blind = 200, debug = True):
     def click_selection_or_exit(big_blind=200):
         if big_blind == 200:
@@ -625,8 +625,8 @@ def read_game_rules(big_blind = 200, debug = True):
     if game_rules_pos != [-1, -1]:
         pyautogui.moveTo(game_rules_pos[0] - 300, game_rules_pos[1] + 3)
         pyautogui.mouseDown()
-        pyautogui.dragTo(x=dgrp[0]+100, y=dgrp[1]+100, duration=.5, button='left')
-        pyautogui.dragTo(x=dgrp[0], y=dgrp[1], duration=.5, button='left')
+        pyautogui.dragTo(x=dgrp[0]+200, y=dgrp[1], duration=.5, button='left')
+        pyautogui.dragTo(x=dgrp[0], y=dgrp[1], duration=1.5, button='left')
         pyautogui.mouseUp()
         time.sleep(1)
         return True

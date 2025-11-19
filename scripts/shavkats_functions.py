@@ -623,7 +623,7 @@ def read_game_rules(big_blind = 200, debug = True):
     game_rules_pos = imagesearch('images/game_rules.png', precision=0.8, calling_function="read_game_rules", debug=debug)
     print("Game Rules position: ", game_rules_pos)
     if game_rules_pos != [-1, -1]:
-        pyautogui.moveTo(game_rules_pos[0] - 200, game_rules_pos[1] + random.randrange(3,10))
+        pyautogui.moveTo(game_rules_pos[0] - 300, game_rules_pos[1] + 3)
         pyautogui.mouseDown()
         pyautogui.dragTo(x=dgrp[0], y=dgrp[1], duration=0.5, button='left')
         pyautogui.mouseUp()

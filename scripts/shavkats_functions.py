@@ -610,6 +610,8 @@ def read_game_rules(big_blind = 200, debug = False):
         exit()
     z3 = [x for x in z2 if x not in z1][0]
     my = pygetwindow.getActiveWindow()
+    print("my.title: "+str(my.title))
+    print("z3: "+str(z3))
     if my.title != z3:
         print("something went wrong joining table, exiting...")
         exit()

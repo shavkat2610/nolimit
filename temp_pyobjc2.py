@@ -10,6 +10,7 @@ for app in workspace.runningApplications():
 
 from AppKit import NSWorkspace
 activeAppName = NSWorkspace.sharedWorkspace().activeApplication()['NSApplicationName']
+activeAppName = NSWorkspace.sharedWorkspace().
 print(activeAppName)
 
 

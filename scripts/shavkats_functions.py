@@ -624,8 +624,7 @@ def read_game_rules(big_blind = 200, debug = False):
     ws = AppKit.NSWorkspace.sharedWorkspace()
     for i in range(10):
         for app in ws.runningApplications():
-            if app.isActive():
-                print("active app:", app.localizedName())
+            print(" - some app:", app.localizedName())
         date = AppKit.NSDate.date()
         time.sleep(1)
         rl.acceptInputForMode_beforeDate_( AppKit.NSDefaultRunLoopMode, date )

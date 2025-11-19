@@ -597,9 +597,14 @@ def read_game_rules(big_blind = 200, debug = False):
     click_one_times_please('images/join_table.png', debug=False) # debug false !
     time.sleep(3)
     z1 = pygetwindow.getAllTitles()
+    print("z1 length: "+str(len(z1)))
+    print(z1)
+     # check if new window appeared
     click_one_times_please('images/join_again.png', debug=False) # debug false !
-    time.sleep(5)
+    time.sleep(20)
     z2 = pygetwindow.getAllTitles()
+    print("z2 length: "+str(len(z2)))
+    print(z2)
     if len(z2) <= len(z1):
         print("could not join table, exiting...")
         exit()

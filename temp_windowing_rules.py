@@ -11,3 +11,4 @@ import pygetwindow
 
 
 z1 = pygetwindow.getAllTitles()
+print(z1)

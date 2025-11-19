@@ -579,10 +579,7 @@ def screenshot_area(point = (50, 50), size = [250, 250], file_name = "temp.png")
 
 
 
-import AppKit
-import time
 
-from AppKit import NSWorkspace
 import pygetwindow
 dgrp = [769, 41]
 def read_game_rules(big_blind = 200, debug = False):
@@ -606,33 +603,20 @@ def read_game_rules(big_blind = 200, debug = False):
      # check if new window appeared
     click_one_times_please('images/join_again.png', debug=False) # debug false !
     time.sleep(20)
-    z2 = pygetwindow.getAllTitles()
-    print("z2 length: "+str(len(z2)))
-    print(z2)
-    if len(z2) <= len(z1):
-        print("could not join table, exiting...")
-        exit()
-    z3 = [x for x in z2 if x not in z1][0]
-    my = pygetwindow.getActiveWindow()
-    print("my.title: "+str(my.title()))
-    print("z3: "+str(z3))
+    # z2 = pygetwindow.getAllTitles()
+    # print("z2 length: "+str(len(z2)))
+    # print(z2)
+    # if len(z2) <= len(z1):
+    #     print("could not join table, exiting...")
+    #     exit()
+    # z3 = [x for x in z2 if x not in z1][0]
+    # my = pygetwindow.getActiveWindow()
+    # print("my.title: "+str(my.title()))
+    # print("z3: "+str(z3))
     # Source - https://stackoverflow.com/a/30564102
     # Posted by Rich Drake
     # Retrieved 2025-11-19, License - CC BY-SA 3.0
 
-    rl = AppKit.NSRunLoop.currentRunLoop()
-    ws = AppKit.NSWorkspace.sharedWorkspace()
-    for i in range(10):
-        for app in ws.runningApplications():
-            print(" - some app:", app.localizedName())
-        date = AppKit.NSDate.date()
-        time.sleep(1)
-        rl.acceptInputForMode_beforeDate_( AppKit.NSDefaultRunLoopMode, date )
-
-    if my.title().lower() != z3.lower():
-        print("something went wrong joining table, exiting...")
-        exit()
-    my.moveTo(0, 0)
     time.sleep(1)
     # get window, place in the top left corner
     click_ok(debug = False)  

@@ -581,8 +581,8 @@ def screenshot_area(point = (50, 50), size = [250, 250], file_name = "temp.png")
 
 
 import pygetwindow
-dgrp = [769, 41]
-def read_game_rules(big_blind = 200, debug = False):
+dgrp = [750, 37]
+def read_game_rules(big_blind = 200, debug = True):
     def click_selection_or_exit(big_blind=200):
         if big_blind == 200:
             image_path = 'images/5k.png'
@@ -620,6 +620,15 @@ def read_game_rules(big_blind = 200, debug = False):
     # get window, place in the top left corner
     click_ok(debug = True)  
     # pyautogui.moveTo(1700, 500)
+    game_rules_pos = imagesearch('images/game_rules.png', precision=0.8, calling_function="read_game_rules", debug=debug)
+    print("Game Rules position: ", game_rules_pos)
+    if game_rules_pos != [-1, -1]:
+        pyautogui.moveTo(game_rules_pos[0] - 200, game_rules_pos[1] + random.randrange(3,10))
+        pyautogui.mouseDown()
+        pyautogui.dragTo(x=dgrp[0], y=dgrp[1], duration=0.5, button='left')
+        pyautogui.mouseUp()
+        time.sleep(1)
+        return True
 
 
 
@@ -637,8 +646,6 @@ def run_it_up(big_blind = 200):
         time.sleep(.5)
         see_if_there_is_l_info()
         scroll_to_bottom()
-
-
 
      # todo read_game_rules logic
      # # join table, 

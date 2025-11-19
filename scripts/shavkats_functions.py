@@ -622,13 +622,13 @@ def read_game_rules(big_blind = 200, debug = False):
 
     rl = AppKit.NSRunLoop.currentRunLoop()
     ws = AppKit.NSWorkspace.sharedWorkspace()
-    for i in xrange(10):
-    for app in ws.runningApplications():
-        if app.isActive():
-        print "active app:", app.localizedName()
-    date = AppKit.NSDate.date()
-    time.sleep(1)
-    rl.acceptInputForMode_beforeDate_( AppKit.NSDefaultRunLoopMode, date )
+    for i in range(10):
+        for app in ws.runningApplications():
+            if app.isActive():
+                print("active app:", app.localizedName())
+        date = AppKit.NSDate.date()
+        time.sleep(1)
+        rl.acceptInputForMode_beforeDate_( AppKit.NSDefaultRunLoopMode, date )
 
     if my.title().lower() != z3.lower():
         print("something went wrong joining table, exiting...")

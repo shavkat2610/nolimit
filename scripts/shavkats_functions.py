@@ -13,7 +13,6 @@ from matplotlib import pyplot as plt
 # import pyperclip
 import glob
 import pytesseract
-import pygetwindow
 
 
 

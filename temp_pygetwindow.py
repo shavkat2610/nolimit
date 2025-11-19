@@ -19,8 +19,8 @@ print(y2//2)
 
 # find new window title
 z1 = pygetwindow.getAllTitles()
+print(z1)
 time.sleep(1)
-print(len(z1))
 # test with GGPoker
 if os.name == 'posix':  # macOS 
     os.system("open /Applications/GGPoker.app")
@@ -28,7 +28,7 @@ elif os.name == 'nt':  # Windows
     os.system("start C:/Users/shavk/AppData/Roaming/GGPCOM/bin/launcher.exe")
 time.sleep(20)
 z2 = pygetwindow.getAllTitles()
-print(len(z2))
+print(z2)
 time.sleep(1)
 z3 = [x for x in z2 if x not in z1]
 z3 = z3[0]

@@ -582,7 +582,7 @@ def screenshot_area(point = (50, 50), size = [250, 250], file_name = "temp.png")
 
 import pygetwindow
 dgrp = [450, 37]
-def read_game_rules(big_blind = 200, debug = True):
+def read_game_rules(big_blind = 200, debug = False):
     def click_selection_or_exit(big_blind=200):
         if big_blind == 200:
             image_path = 'images/5k.png'
@@ -620,16 +620,18 @@ def read_game_rules(big_blind = 200, debug = True):
     # get window, place in the top left corner
     click_ok(debug = False)  
     # pyautogui.moveTo(1700, 500)
-    game_rules_pos = imagesearch('images/game_rules_color.png', precision=0.8, calling_function="read_game_rules", debug=debug)
-    print("Game Rules position: ", game_rules_pos)
-    if game_rules_pos != [-1, -1]:
-        pyautogui.moveTo(game_rules_pos[0] - 300, game_rules_pos[1] + 3)
-        pyautogui.mouseDown()
-        pyautogui.dragTo(x=dgrp[0]+200, y=dgrp[1], duration=.5, button='left')
-        pyautogui.dragTo(x=dgrp[0], y=dgrp[1], duration=1.5, button='left')
-        pyautogui.mouseUp()
-        time.sleep(1)
-        return True
+    for _ in range(5):
+        game_rules_pos = imagesearch('images/game_rules_color.png', precision=0.8, calling_function="read_game_rules", debug=debug)
+        print("Game Rules position: ", game_rules_pos)
+        if game_rules_pos != [-1, -1]:
+            pyautogui.moveTo(game_rules_pos[0] - 300, game_rules_pos[1] + 3)
+            pyautogui.mouseDown()
+            pyautogui.dragTo(x=dgrp[0]+200, y=dgrp[1], duration=.3, button='left')
+            time.sleep(.2)
+            pyautogui.dragTo(x=dgrp[0], y=dgrp[1], duration=.3, button='left')
+            pyautogui.mouseUp()
+            time.sleep(1)
+    return True
 
 
 
@@ -652,6 +654,6 @@ def run_it_up(big_blind = 200):
      # # join table, 
      # # get game window, position top left corner
      # # das it i think
-    read_game_rules(big_blind=big_blind, debug = True)
+    read_game_rules(big_blind=big_blind, debug = False)
 
 

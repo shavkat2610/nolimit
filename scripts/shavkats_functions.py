@@ -613,28 +613,6 @@ def read_game_rules(big_blind = 200, debug = False):
     # get window, place in the top left corner
     click_ok(debug = False)  
     # pyautogui.moveTo(1700, 500)
-    game_rules_pos = imagesearch('images/game_rules.png', precision=0.9, debug=debug, calling_function="read_game_rules")
-    if game_rules_pos == [-1, -1]:
-        while game_rules_pos == [-1, -1]:
-            time.sleep(3)
-            print("game seems to not have rules ...")
-            game_rules_pos = imagesearch('images/game_rules.png', precision=0.9, debug=debug, calling_function="read_game_rules")
-    print("game_rules_pos = "+str(game_rules_pos))
-    time.sleep(.3)
-    while game_rules_pos != dgrp:
-        pyautogui.moveTo(game_rules_pos[0]-300, game_rules_pos[1]+5)
-        # screenshot_area((game_rules_pos[0]-300, game_rules_pos[1]+5))
-        # exit()
-        time.sleep(.3)
-        pyautogui.mouseDown()
-        time.sleep(.3)
-        pyautogui.dragTo(x=600, y=200, duration=1.5, button='left')
-        time.sleep(.3)
-        pyautogui.dragTo(x=dgrp[0]-300, y=dgrp[1]+5, duration=1.5, button='left')
-        time.sleep(.3)
-        pyautogui.mouseUp()
-        time.sleep(.3)
-        game_rules_pos = imagesearch('images/game_rules.png', precision=0.9, debug=debug, calling_function="read_game_rules")
 
 
 

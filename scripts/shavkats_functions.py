@@ -596,8 +596,21 @@ def read_game_rules(big_blind = 200, debug = False):
     
     click_one_times_please('images/join_table.png', debug=False) # debug false !
     time.sleep(3)
+    z1 = pygetwindow.getAllTitles()
     click_one_times_please('images/join_again.png', debug=False) # debug false !
     time.sleep(5)
+    z2 = pygetwindow.getAllTitles()
+    if len(z2) <= len(z1):
+        print("could not join table, exiting...")
+        exit()
+    z3 = [x for x in z2 if x not in z1][0]
+    my = pygetwindow.getActiveWindow()
+    if my.title != z3:
+        print("something went wrong joining table, exiting...")
+        exit()
+    my.moveTo(0, 0)
+    time.sleep(1)
+    # get window, place in the top left corner
     click_ok(debug = False)  
     # pyautogui.moveTo(1700, 500)
     game_rules_pos = imagesearch('images/game_rules.png', precision=0.9, debug=debug, calling_function="read_game_rules")
@@ -649,4 +662,3 @@ def run_it_up(big_blind = 200):
     read_game_rules(big_blind=big_blind, debug = True)
 
 
-    

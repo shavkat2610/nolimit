@@ -538,26 +538,7 @@ def click_ok(debug = False):
     return False
 
 
-def run_it_up(big_blind = 200):
-    if not check_if_client_running(waiting=False):
-        print("starting up client and logging in...")
-        start_client_and_login()
-    else:
-        login()
-    time.sleep(5)
-    see_if_there_is_l_info(debug = False)
-    if push_holdem():
-        time.sleep(.5)
-        see_if_there_is_l_info()
-        scroll_to_bottom()
 
-
-
-     # todo read_game_rules logic
-     # # join table, 
-     # # get game window, position top left corner
-     # # das it i think
-    read_game_rules(debug = False)
 
 
 
@@ -646,3 +627,26 @@ def read_game_rules(big_blind = 200, debug = False):
 
 
 
+def run_it_up(big_blind = 200):
+    if not check_if_client_running(waiting=False):
+        print("starting up client and logging in...")
+        start_client_and_login()
+    else:
+        login()
+    time.sleep(5)
+    see_if_there_is_l_info(debug = False)
+    if push_holdem():
+        time.sleep(.5)
+        see_if_there_is_l_info()
+        scroll_to_bottom()
+
+
+
+     # todo read_game_rules logic
+     # # join table, 
+     # # get game window, position top left corner
+     # # das it i think
+    read_game_rules(big_blind=big_blind, debug = True)
+
+
+    

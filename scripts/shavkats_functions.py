@@ -581,7 +581,7 @@ def screenshot_area(point = (50, 50), size = [250, 250], file_name = "temp.png")
 
 
 import pygetwindow
-dgrp = [750, 37]
+dgrp = [350, 37]
 def read_game_rules(big_blind = 200, debug = True):
     def click_selection_or_exit(big_blind=200):
         if big_blind == 200:

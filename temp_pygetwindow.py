@@ -38,6 +38,8 @@ time.sleep(3)
 # also able to edit z3 to specified window-title string like: "Sublime Text (UNREGISTERED)"
 # my = pygetwindow.getWindowsWithTitle(z3)[0]
 my = pygetwindow.getActiveWindow()
+print(my)
+exit()
 # quarter of screen screensize
 x3 = x2 // 2
 y3 = y2 // 2

@@ -1,0 +1,15 @@
+.venv
+data
+screenshots
+secrets1
+vitadrom
+jena_climate_2009_2016.csv
+testarea3.png
+model*
+*.pyc
+testarea*
+__pycache__/*
+secrets1/__pycache__
+temp*.png
+./secrets1
+./secrets1/*

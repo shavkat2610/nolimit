@@ -581,7 +581,7 @@ def screenshot_area(point = (50, 50), size = [250, 250], file_name = "temp.png")
 
 
 import pygetwindow
-dgrp = [450, 45]
+dgrp = [460, 45]
 def read_game_rules(big_blind = 200, debug = False):
     def click_selection_or_exit(big_blind=200):
         if big_blind == 200:
@@ -602,7 +602,7 @@ def read_game_rules(big_blind = 200, debug = False):
     # print(z1)
      # check if new window appeared
     click_one_times_please('images/join_again.png', debug=False) # debug false !
-    time.sleep(10)
+    time.sleep(5)
     # z2 = pygetwindow.getAllTitles()
     # print("z2 length: "+str(len(z2)))
     # print(z2)

@@ -564,7 +564,7 @@ def run_it_up(big_blind = 200):
     #     click_one_times_please('images/join_table.png')
     #     see_if_there_is_l_info()
     time.sleep(3)
-    click_one_times_please('images/join_again.png', debug=True)
+    click_one_times_please('images/join_again.png', debug=False)
     time.sleep(5)
     click_ok(debug = False)  
 

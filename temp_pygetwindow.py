@@ -45,7 +45,7 @@ x3 = x2 // 2
 y3 = y2 // 2
 # my.resizeTo(x3,y3)
 # top-left
-# my.moveTo(0, 0)
+my.moveTo(0, 0)
 time.sleep(3)
 my.activate()
 time.sleep(1)

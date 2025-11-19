@@ -7,6 +7,13 @@ print("All Running Applications:")
 for app in workspace.runningApplications():
     print("-", app.localizedName())
 
+
+from AppKit import NSWorkspace
+activeAppName = NSWorkspace.sharedWorkspace().activeApplication()['NSApplicationName']
+print(activeAppName)
+
+
+
 # print("Available Applications in /Applications:")
 # applications = workspace.urlsForApplicationsInDirectory_("/Applications")
 # for app_url in applications:

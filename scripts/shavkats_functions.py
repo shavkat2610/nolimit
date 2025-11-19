@@ -558,6 +558,11 @@ def run_it_up(big_blind = 200):
     click_selection_or_exit(big_blind)
     if see_if_there_is_l_info():
         click_selection_or_exit(big_blind)
+
+     # todo read_game_rules logic
+     # # join table, 
+     # # get game window, position top left corner
+     # # das it i think
     click_one_times_please('images/join_table.png', debug=False)
     # if see_if_there_is_l_info():
     #     click_selection_or_exit()

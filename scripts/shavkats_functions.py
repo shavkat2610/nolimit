@@ -77,15 +77,15 @@ def imagesearch(image_path, precision=0.9, debug = False, calling_function = Non
     img_gray = cv2.cvtColor(img_rgb, cv2.COLOR_RGB2GRAY)
     template = cv2.imread(image_path, 1)
     template = cv2.cvtColor(template, cv2.COLOR_BGR2RGB)
-    if debug:
-        img4_rgb = np.array(im)
-        print("imagesearch - from : "+str(calling_function))
-        print('screenshot')
-        plt.imshow(img4_rgb, interpolation='nearest')
-        plt.show()
-        print('looking for: ')
-        plt.imshow(template, interpolation='nearest')
-        plt.show()
+    # if debug:
+    #     img4_rgb = np.array(im)
+    #     print("imagesearch - from : "+str(calling_function))
+    #     print('screenshot')
+    #     plt.imshow(img4_rgb, interpolation='nearest')
+    #     plt.show()
+    #     print('looking for: ')
+    #     plt.imshow(template, interpolation='nearest')
+    #     plt.show()
     try:
         coordinates = pyautogui.locate(template, img_rgb, confidence=0.999)
         if debug:

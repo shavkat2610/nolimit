@@ -5,12 +5,12 @@ print("Current Application Path:", workspace.frontmostApplication().bundleURL().
 
 print("All Running Applications:")
 for app in workspace.runningApplications():
-    print("-", app.bundleURL().path())
+    print("-", app.localizedName())
 
-print("Available Applications in /Applications:")
-applications = workspace.urlsForApplicationsInDirectory_("/Applications")
-for app_url in applications:
-    print("-", app_url.path())
+# print("Available Applications in /Applications:")
+# applications = workspace.urlsForApplicationsInDirectory_("/Applications")
+# for app_url in applications:
+#     print("-", app_url.path())
     
 
 # """A minimal Cocoa application written in Python using the PyObjC bridge."""

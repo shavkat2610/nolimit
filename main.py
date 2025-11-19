@@ -18,7 +18,7 @@ remove_debug_imgs()
 run_it_up(big_blind = big_blind)
 
 
-read_game_rules(debug = True)
+read_game_rules(big_blind, debug = True)
 
 
 

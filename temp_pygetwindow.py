@@ -21,14 +21,18 @@ print(y2//2)
 z1 = pygetwindow.getAllTitles()
 time.sleep(1)
 print(len(z1))
-# test with pictures folder
-os.startfile("C:/Users/shavk/AppData/Roaming/GGPCOM/bin/launcher.exe")
+# test with GGPoker
+if os.name == 'posix':  # macOS 
+    os.system("open /Applications/GGPoker.app")
+elif os.name == 'nt':  # Windows
+    os.system("start C:/Users/shavk/AppData/Roaming/GGPCOM/bin/launcher.exe")
 time.sleep(20)
 z2 = pygetwindow.getAllTitles()
 print(len(z2))
 time.sleep(1)
 z3 = [x for x in z2 if x not in z1]
-z3 = ''.join(z3)
+z3 = z3[0]
+print('z3: '+str(z3))
 time.sleep(3)
 
 # also able to edit z3 to specified window-title string like: "Sublime Text (UNREGISTERED)"
@@ -38,7 +42,7 @@ x3 = x2 // 2
 y3 = y2 // 2
 # my.resizeTo(x3,y3)
 # top-left
-my.moveTo(0, 0)
+# my.moveTo(0, 0)
 time.sleep(3)
 my.activate()
 time.sleep(1)

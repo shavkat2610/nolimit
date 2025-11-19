@@ -526,11 +526,15 @@ def scroll_to_bottom():
 
 
 def click_ok(debug = False):
-    for _ in range(20):
-        if click_one_times_please('images/ok.png', debug = debug, precision=90):
+    image_path = 'images/ok.png'
+    for _ in range(3):
+        button_pos = imagesearch(image_path, precision=0.95, debug = debug, calling_function="click_one_times_please")
+        # print(f"{image_path} position: ", button_pos)
+        if button_pos != [-1, -1]:
+            pyautogui.click(button_pos[0] + random.randrange(10,14), button_pos[1] + random.randrange(10,14))
+            time.sleep(.5)
+            print(f"{image_path} clicked 1x.")
             return True
-        time.sleep(2)
-    print('not ok')
     return False
 
 
@@ -547,31 +551,14 @@ def run_it_up(big_blind = 200):
         see_if_there_is_l_info()
         scroll_to_bottom()
 
-    def click_selection_or_exit(big_blind=200):
-        if big_blind == 200:
-            image_path = 'images/5k.png'
-            if not click_two_times_please(image_path, debug = False):
-                print("Could not find selection, exiting...")
-                exit()
-        else:
-            pass #todo
-    click_selection_or_exit(big_blind)
-    if see_if_there_is_l_info():
-        click_selection_or_exit(big_blind)
+
 
      # todo read_game_rules logic
      # # join table, 
      # # get game window, position top left corner
      # # das it i think
-    click_one_times_please('images/join_table.png', debug=False)
-    # if see_if_there_is_l_info():
-    #     click_selection_or_exit()
-    #     click_one_times_please('images/join_table.png')
-    #     see_if_there_is_l_info()
-    time.sleep(3)
-    click_one_times_please('images/join_again.png', debug=False)
-    time.sleep(5)
-    click_ok(debug = False)  
+    read_game_rules(debug = False)
+
 
 
 def fold():
@@ -610,11 +597,27 @@ def screenshot_area(point = (50, 50), size = [250, 250], file_name = "temp.png")
 
 
 
-def init_gui():
-    pass
 
+import pygetwindow
 dgrp = [769, 41]
-def read_game_rules(debug = False):
+def read_game_rules(big_blind = 200, debug = False):
+    def click_selection_or_exit(big_blind=200):
+        if big_blind == 200:
+            image_path = 'images/5k.png'
+            if not click_two_times_please(image_path, debug = False):
+                print("Could not find selection, exiting...")
+                exit()
+        else:
+            pass #todo
+    click_selection_or_exit(big_blind)
+    if see_if_there_is_l_info():
+        click_selection_or_exit(big_blind)
+    
+    click_one_times_please('images/join_table.png', debug=False) # debug false !
+    time.sleep(3)
+    click_one_times_please('images/join_again.png', debug=False) # debug false !
+    time.sleep(5)
+    click_ok(debug = False)  
     # pyautogui.moveTo(1700, 500)
     game_rules_pos = imagesearch('images/game_rules.png', precision=0.9, debug=debug, calling_function="read_game_rules")
     if game_rules_pos == [-1, -1]:

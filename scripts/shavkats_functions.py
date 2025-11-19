@@ -530,7 +530,7 @@ def click_ok(debug = False):
         button_pos = imagesearch(image_path, precision=0.95, debug = debug, calling_function="click_one_times_please")
         # print(f"{image_path} position: ", button_pos)
         if button_pos != [-1, -1]:
-            pyautogui.click(button_pos[0] + random.randrange(1,14), button_pos[1] + random.randrange(1,14))
+            pyautogui.click(button_pos[0] + random.randrange(10,14), button_pos[1] + random.randrange(1,4))
             time.sleep(.5)
             print(f"{image_path} clicked 1x.")
             return True
@@ -618,7 +618,7 @@ def read_game_rules(big_blind = 200, debug = True):
     # Retrieved 2025-11-19, License - CC BY-SA 3.0
 
     # get window, place in the top left corner
-    click_ok(debug = True)  
+    click_ok(debug = False)  
     # pyautogui.moveTo(1700, 500)
     game_rules_pos = imagesearch('images/game_rules.png', precision=0.8, calling_function="read_game_rules", debug=debug)
     print("Game Rules position: ", game_rules_pos)

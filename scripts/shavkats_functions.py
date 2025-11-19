@@ -612,7 +612,7 @@ def read_game_rules(big_blind = 200, debug = False):
     my = pygetwindow.getActiveWindow()
     print("my.title: "+str(my.title()))
     print("z3: "+str(z3))
-    if my.title() != z3:
+    if my.title().lower() != z3.lower():
         print("something went wrong joining table, exiting...")
         exit()
     my.moveTo(0, 0)

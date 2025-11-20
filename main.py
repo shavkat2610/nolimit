@@ -86,17 +86,18 @@ def read_times(areas, areas_count):
     return areas, areas_count
 
 
-pixel_value_0 = None
-pixel_value_1 = None
-pixel_value_2 = None
-pixel_value_3 = None
-pixel_value_4 = None
-pixel_value_5 = None
+
 
 
 def ingame_loop():
     areas_count = 0
     areas = []
+    pixel_value_0 = None
+    pixel_value_1 = None
+    pixel_value_2 = None
+    pixel_value_3 = None
+    pixel_value_4 = None
+    pixel_value_5 = None
 
     # mendatory
     while True:

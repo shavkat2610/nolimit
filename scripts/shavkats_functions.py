@@ -527,12 +527,11 @@ def scroll_to_bottom():
 def click_ok(debug = False):
     image_path = 'images/ok.png'
     while True:
-        time.sleep(1)
         button_pos = imagesearch(image_path, precision=0.95, debug = debug, calling_function="click_one_times_please")
         # print(f"{image_path} position: ", button_pos)
         if button_pos != [-1, -1]:
             pyautogui.click(button_pos[0] + random.randrange(10,14), button_pos[1] + random.randrange(1,4))
-            time.sleep(.5)
+            time.sleep(1.5)
             print(f"{image_path} clicked 1x.")
             return True
     # return False

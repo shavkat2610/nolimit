@@ -16,7 +16,7 @@ big_blind = 200
 remove_debug_imgs()
 
 
-run_it_up(big_blind = big_blind)
+# run_it_up(big_blind = big_blind)
 
 
 def read_times(areas, areas_count):

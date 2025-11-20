@@ -598,29 +598,12 @@ def read_game_rules(big_blind = 200, debug = False):
     
     click_one_times_please('images/join_table.png', debug=False) # debug false !
     time.sleep(3)
-    # z1 = pygetwindow.getAllTitles()
-    # print("z1 length: "+str(len(z1)))
-    # print(z1)
-     # check if new window appeared
+
     click_one_times_please('images/join_again.png', debug=False) # debug false !
     time.sleep(5)
-    # z2 = pygetwindow.getAllTitles()
-    # print("z2 length: "+str(len(z2)))
-    # print(z2)
-    # if len(z2) <= len(z1):
-    #     print("could not join table, exiting...")
-    #     exit()
-    # z3 = [x for x in z2 if x not in z1][0]
-    # my = pygetwindow.getActiveWindow()
-    # print("my.title: "+str(my.title()))
-    # print("z3: "+str(z3))
-    # Source - https://stackoverflow.com/a/30564102
-    # Posted by Rich Drake
-    # Retrieved 2025-11-19, License - CC BY-SA 3.0
 
-    # get window, place in the top left corner
     click_ok(debug = False)  
-    # pyautogui.moveTo(1700, 500)
+
     for _ in range(5):
         game_rules_pos = imagesearch('images/game_rules_color.png', precision=0.8, calling_function="read_game_rules", debug=debug)
         print("Game Rules position: ", game_rules_pos)
@@ -654,7 +637,8 @@ def run_it_up(big_blind = 200):
      # todo read_game_rules logic
      # # join table, 
      # # get game window, position top left corner
-     # # das it i think
+     # # check pixels, if it's in the exact right spot, read rules
+     # # if not, move it to the right spot, then read rules
     read_game_rules(big_blind=big_blind, debug = False)
 
 

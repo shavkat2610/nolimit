@@ -100,7 +100,7 @@ def ingame_loop():
     # mendatory
     while True:
         pyautogui.moveTo(1700, 950, duration=0.2)
-        time.sleep(10)
+        time.sleep(5)
         im = screenshot_area(point = (0, 100), size = [800, 530], file_name=f"temp_screenshot.png")
         pixels = im.load()
         pixel_value_0 = pixels[100, 14]

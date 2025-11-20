@@ -9,18 +9,14 @@ from scripts.shavkats_functions import click_ok, compare_img, fold, imagesearch,
 import random
 import glob
 
+
 big_blind = 200
 
 
 remove_debug_imgs()
 
 
-# run_it_up(big_blind = big_blind)
-
-
-
-
-
+run_it_up(big_blind = big_blind)
 
 
 def read_times(areas, areas_count):
@@ -90,7 +86,12 @@ def read_times(areas, areas_count):
     return areas, areas_count
 
 
-
+pixel_value_0 = None
+pixel_value_1 = None
+pixel_value_2 = None
+pixel_value_3 = None
+pixel_value_4 = None
+pixel_value_5 = None
 
 
 def ingame_loop():
@@ -101,14 +102,40 @@ def ingame_loop():
     while True:
         pyautogui.moveTo(1100, 950, duration=0.01)
         time.sleep(5)
-        im = screenshot_area(point = (0, 100), size = [800, 530], file_name=f"temp_screenshot.png")
+        im = screenshot_area(point = (0, 100), size = [800, 530], file_name=f"game_screenshot.png")
         pixels = im.load()
-        pixel_value_0 = pixels[100, 14]
-        pixel_value_1 = pixels[79, 18]
-        pixel_value_2 = pixels[18, 25]
-        print("pixel_value_0: "+str(pixel_value_0))
-        print("pixel_value_1: "+str(pixel_value_1))
-        print("pixel_value_2: "+str(pixel_value_2))
+
+        if pixel_value_0 != pixels[100, 14]:
+            print("changed pixel_value_0")
+            pixel_value_0 = pixels[100, 14]
+        
+        if pixel_value_1 != pixels[79, 18]:
+            print("changed pixel_value_1")
+            pixel_value_1 = pixels[79, 18]
+
+        if pixel_value_2 != pixels[18, 25]:
+            print("changed pixel_value_2")
+            pixel_value_2 = pixels[18, 25]
+
+        if pixel_value_3 != pixels[8, 18]:
+            print("changed pixel_value_3")
+            pixel_value_3 = pixels[8, 18]
+
+        if pixel_value_4 != pixels[71, 21]:
+            print("changed pixel_value_4")
+            pixel_value_4 = pixels[71, 21]
+        
+        if pixel_value_5 != pixels[18, 250]:
+            print("changed pixel_value_5")
+            pixel_value_5 = pixels[18, 250]
+
+
+        # print("pixel_value_0: "+str(pixel_value_0))
+        # print("pixel_value_1: "+str(pixel_value_1))
+        # print("pixel_value_2: "+str(pixel_value_2))
+        # print("pixel_value_3: "+str(pixel_value_3))
+        # print("pixel_value_4: "+str(pixel_value_4))
+        # print("pixel_value_5: "+str(pixel_value_5))
         # areas, areas_count = read_times(areas, areas_count)
 
 

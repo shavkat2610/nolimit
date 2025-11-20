@@ -526,7 +526,7 @@ def scroll_to_bottom():
 
 def click_ok(debug = False):
     image_path = 'images/ok.png'
-    for _ in range(5):
+    while True:
         time.sleep(1)
         button_pos = imagesearch(image_path, precision=0.95, debug = debug, calling_function="click_one_times_please")
         # print(f"{image_path} position: ", button_pos)
@@ -535,7 +535,7 @@ def click_ok(debug = False):
             time.sleep(.5)
             print(f"{image_path} clicked 1x.")
             return True
-    return False
+    # return False
 
 
 

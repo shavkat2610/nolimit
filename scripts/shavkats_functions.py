@@ -614,14 +614,7 @@ def read_game_rules(big_blind = 200, debug = False):
             pyautogui.dragTo(x=dgrp[0], y=dgrp[1], duration=.3, button='left')
             pyautogui.mouseUp()
             time.sleep(1)
-            im = screenshot_area(point = (0, 100), size = [800, 530], file_name=f"temp_screenshot.png")
-            pixels = im.load()
-            pixel_value_0 = pixels[1, 14]
-            pixel_value_1 = pixels[7, 18]
-            pixel_value_2 = pixels[8, 25]
-            print("pixel_value_0: "+str(pixel_value_0))
-            print("pixel_value_1: "+str(pixel_value_1))
-            print("pixel_value_2: "+str(pixel_value_2))
+
     return True
 
 

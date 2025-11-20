@@ -101,7 +101,15 @@ def ingame_loop():
     while True:
         pyautogui.moveTo(1700, 950, duration=0.2)
         time.sleep(10)
-        areas, areas_count = read_times(areas, areas_count)
+        im = screenshot_area(point = (0, 100), size = [800, 530], file_name=f"temp_screenshot.png")
+        pixels = im.load()
+        pixel_value_0 = pixels[1, 14]
+        pixel_value_1 = pixels[7, 18]
+        pixel_value_2 = pixels[8, 25]
+        print("pixel_value_0: "+str(pixel_value_0))
+        print("pixel_value_1: "+str(pixel_value_1))
+        print("pixel_value_2: "+str(pixel_value_2))
+        # areas, areas_count = read_times(areas, areas_count)
 
 
 ingame_loop()

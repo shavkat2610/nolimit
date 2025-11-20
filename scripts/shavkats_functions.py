@@ -586,7 +586,7 @@ def read_game_rules(big_blind = 200, debug = False):
     def click_selection_or_exit(big_blind=200):
         if big_blind == 200:
             image_path = 'images/5k.png'
-            if not click_two_times_please(image_path, debug = False):
+            if not click_two_times_please(image_path, precision=90, debug = False):
                 print("Could not find selection, exiting...")
                 exit()
         else:

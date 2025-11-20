@@ -90,45 +90,61 @@ def read_times(areas, areas_count):
 
 
 def ingame_loop():
-    areas_count = 0
-    areas = []
-    pixel_value_0 = None
-    pixel_value_1 = None
-    pixel_value_2 = None
-    pixel_value_3 = None
-    pixel_value_4 = None
-    pixel_value_5 = None
+    # areas_count = 0
+    # areas = []
+    # pixel_value_0 = None
+    # pixel_value_1 = None
+    # pixel_value_2 = None
+    # pixel_value_3 = None
+    # pixel_value_4 = None
+    # pixel_value_5 = None
 
     # mendatory
     while True:
         pyautogui.moveTo(1100, 950, duration=0.01)
         time.sleep(5)
         im = screenshot_area(point = (0, 100), size = [800, 530], file_name=f"game_screenshot.png")
-        pixels = im.load()
 
-        if pixel_value_0 != pixels[100, 14]:
-            print("changed pixel_value_0 to "+str(pixels[100, 14]))
-            pixel_value_0 = pixels[100, 14]
+        # Setting the points for cropped image
+        left = 20
+        top = 20
+        right = 40
+        bottom = 40
+
+        # Cropped image of above dimension
+        # (It will not change original image)
+        im1 = im.crop((left, top, right, bottom))
+
+        # Shows the image in image viewer
+        im1.show()
+        im1.save("cropped_image.png")
+
+
+        # pixels = im.load()
+
+        # if pixel_value_0 != pixels[100, 14]:
+        #     print("changed pixel_value_0 to "+str(pixels[100, 14]))
+        #     pixel_value_0 = pixels[100, 14]
         
-        if pixel_value_1 != pixels[79, 18]:
-            print("changed pixel_value_1 to "+str(pixels[79, 18]))
-            pixel_value_1 = pixels[79, 18]
+        # if pixel_value_1 != pixels[79, 18]:
+        #     print("changed pixel_value_1 to "+str(pixels[79, 18]))
+        #     pixel_value_1 = pixels[79, 18]
 
-        if pixel_value_2 != pixels[18, 25]:
-            print("changed pixel_value_2 to "+str(pixels[18, 25]))
-            pixel_value_2 = pixels[18, 25]
+        # if pixel_value_2 != pixels[18, 25]:
+        #     print("changed pixel_value_2 to "+str(pixels[18, 25]))
+        #     pixel_value_2 = pixels[18, 25]
 
-        if pixel_value_3 != pixels[8, 18]:
-            print("changed pixel_value_3 to "+str(pixels[8, 18]))
-            pixel_value_3 = pixels[8, 18]
+        # if pixel_value_3 != pixels[8, 18]:
+        #     print("changed pixel_value_3 to "+str(pixels[8, 18]))
+        #     pixel_value_3 = pixels[8, 18]
 
-        if pixel_value_4 != pixels[71, 21]:
-            print("changed pixel_value_4 to "+str(pixels[71, 21]))
-            pixel_value_4 = pixels[71, 21]
+        # if pixel_value_4 != pixels[71, 21]:
+        #     print("changed pixel_value_4 to "+str(pixels[71, 21]))
+        #     pixel_value_4 = pixels[71, 21]
         
-        if pixel_value_5 != pixels[18, 250]:
-            print("changed pixel_value_5 to "+str(pixels[18, 250]))
-            pixel_value_5 = pixels[18, 250]
+        # if pixel_value_5 != pixels[18, 250]:
+        #     print("changed pixel_value_5 to "+str(pixels[18, 250]))
+        #     pixel_value_5 = pixels[18, 250]
 
 
         # print("pixel_value_0: "+str(pixel_value_0))
@@ -137,6 +153,8 @@ def ingame_loop():
         # print("pixel_value_3: "+str(pixel_value_3))
         # print("pixel_value_4: "+str(pixel_value_4))
         # print("pixel_value_5: "+str(pixel_value_5))
+
+
         # areas, areas_count = read_times(areas, areas_count)
 
 

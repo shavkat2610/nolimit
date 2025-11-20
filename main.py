@@ -106,9 +106,9 @@ def ingame_loop():
         im = screenshot_area(point = (0, 100), size = [800, 530], file_name=f"game_screenshot.png")
 
         # Setting the points for cropped image
-        left = 10
+        left = 3
         top = 20
-        right = 40
+        right = 35
         bottom = 400
 
         # Cropped image of above dimension

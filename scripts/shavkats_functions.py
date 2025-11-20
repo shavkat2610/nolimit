@@ -609,11 +609,20 @@ def read_game_rules(big_blind = 200, debug = False):
         if game_rules_pos != [-1, -1]:
             pyautogui.moveTo(game_rules_pos[0] - 300, game_rules_pos[1] + 3)
             pyautogui.mouseDown()
-            pyautogui.dragTo(x=dgrp[0]+200, y=dgrp[1], duration=.3, button='left')
+            pyautogui.dragTo(x=dgrp[0]+200, y=dgrp[1], duration=.7, button='left')
             time.sleep(.2)
-            pyautogui.dragTo(x=dgrp[0], y=dgrp[1], duration=.3, button='left')
+            pyautogui.dragTo(x=dgrp[0], y=dgrp[1], duration=.7, button='left')
             pyautogui.mouseUp()
-            time.sleep(1)
+            im = screenshot_area(point = (0, 100), size = [800, 530], file_name=f"game_screenshot.png")
+            # Setting the points for cropped image
+            left = 3
+            top = 20
+            right = 35
+            bottom = 400
+
+            # Cropped image of above dimension
+            # (It will not change original image)
+            im1 = im.crop((3, 20, 35, 400))
 
     return True
 

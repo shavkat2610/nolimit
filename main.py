@@ -107,27 +107,27 @@ def ingame_loop():
         pixels = im.load()
 
         if pixel_value_0 != pixels[100, 14]:
-            print("changed pixel_value_0")
+            print("changed pixel_value_0 to "+str(pixels[100, 14]))
             pixel_value_0 = pixels[100, 14]
         
         if pixel_value_1 != pixels[79, 18]:
-            print("changed pixel_value_1")
+            print("changed pixel_value_1 to "+str(pixels[79, 18]))
             pixel_value_1 = pixels[79, 18]
 
         if pixel_value_2 != pixels[18, 25]:
-            print("changed pixel_value_2")
+            print("changed pixel_value_2 to "+str(pixels[18, 25]))
             pixel_value_2 = pixels[18, 25]
 
         if pixel_value_3 != pixels[8, 18]:
-            print("changed pixel_value_3")
+            print("changed pixel_value_3 to "+str(pixels[8, 18]))
             pixel_value_3 = pixels[8, 18]
 
         if pixel_value_4 != pixels[71, 21]:
-            print("changed pixel_value_4")
+            print("changed pixel_value_4 to "+str(pixels[71, 21]))
             pixel_value_4 = pixels[71, 21]
         
         if pixel_value_5 != pixels[18, 250]:
-            print("changed pixel_value_5")
+            print("changed pixel_value_5 to "+str(pixels[18, 250]))
             pixel_value_5 = pixels[18, 250]
 
 

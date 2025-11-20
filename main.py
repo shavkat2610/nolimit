@@ -15,7 +15,7 @@ big_blind = 200
 remove_debug_imgs()
 
 
-run_it_up(big_blind = big_blind)
+# run_it_up(big_blind = big_blind)
 
 
 
@@ -103,9 +103,9 @@ def ingame_loop():
         time.sleep(10)
         im = screenshot_area(point = (0, 100), size = [800, 530], file_name=f"temp_screenshot.png")
         pixels = im.load()
-        pixel_value_0 = pixels[1, 14]
-        pixel_value_1 = pixels[7, 18]
-        pixel_value_2 = pixels[8, 25]
+        pixel_value_0 = pixels[100, 14]
+        pixel_value_1 = pixels[79, 18]
+        pixel_value_2 = pixels[18, 25]
         print("pixel_value_0: "+str(pixel_value_0))
         print("pixel_value_1: "+str(pixel_value_1))
         print("pixel_value_2: "+str(pixel_value_2))

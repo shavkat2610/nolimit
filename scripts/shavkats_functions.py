@@ -581,7 +581,7 @@ def screenshot_area(point = (50, 50), size = [250, 250], file_name = "temp.png")
 
 
 import pygetwindow
-dgrp = [468, 45]
+dgrp = [468, 50] # default game region position
 def read_game_rules(big_blind = 200, debug = False):
     def click_selection_or_exit(big_blind=200):
         if big_blind == 200:
@@ -604,7 +604,7 @@ def read_game_rules(big_blind = 200, debug = False):
     click_ok(debug = False)  
 
     for _ in range(5):
-        time.sleep(1)
+        time.sleep(2)
         game_rules_pos = imagesearch('images/game_rules_color.png', precision=0.8, calling_function="read_game_rules", debug=debug)
         print("Game Rules position: ", game_rules_pos)
         if game_rules_pos != [-1, -1]:

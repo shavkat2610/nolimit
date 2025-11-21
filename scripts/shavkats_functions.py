@@ -210,12 +210,12 @@ def login(debug = False):
     find_login_button_and_click()
     #putting in credentials
     upper_corner = Image.open('images/login_popup_upper_corner.png')
-    if compare_img_screenshot(upper_corner,(420, 149)):
+    if compare_img_screenshot(upper_corner,(420, 149), debug=True, debug_2=True):
         upper_corner_pos = (420, 149)
     else: 
         upper_corner_pos = [-1, -1]
         while upper_corner_pos == [-1, -1]:
-            upper_corner_pos = imagesearch('images/login_popup_upper_corner.png', precision=0.9, debug=debug, calling_function= 'login')
+            upper_corner_pos = imagesearch('images/login_popup_upper_corner.png', precision=0.9, debug=True, calling_function= 'login')
             print("upper_corner position: ", upper_corner_pos)
 
     if upper_corner_pos != [-1, -1]:

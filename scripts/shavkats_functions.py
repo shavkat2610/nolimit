@@ -210,12 +210,12 @@ def login(debug = False):
     find_login_button_and_click()
     #putting in credentials
     upper_corner = Image.open('images/login_popup_upper_corner.png')
-    if compare_img_screenshot(upper_corner,(420, 167), debug=True, debug_2=True):
+    if compare_img_screenshot(upper_corner,(420, 167), debug=debug, debug_2=debug):
         upper_corner_pos = (420, 167)
     else: 
         upper_corner_pos = [-1, -1]
         while upper_corner_pos == [-1, -1]:
-            upper_corner_pos = imagesearch('images/login_popup_upper_corner.png', precision=0.85, debug=True, calling_function= 'login')
+            upper_corner_pos = imagesearch('images/login_popup_upper_corner.png', precision=0.85, debug=debug, calling_function= 'login')
             print("upper_corner position: ", upper_corner_pos)
 
     if upper_corner_pos != [-1, -1]:
@@ -568,12 +568,13 @@ def make_screenshot_of_area(x1, y1, x2, y2, file_name):
     im.save(file_name)
     print(f"screenshot saved as {file_name}")
 
-def screenshot_area(point = (50, 50), size = [250, 250], file_name = "temp.png"):
+def screenshot_area(point = (50, 50), size = [250, 250], file_name = None):
     time.sleep(3.5)
     im = pyautogui.screenshot(region=(point[0], point[1], size[0], size[1]))
     # secs = time.time()
     # im2 = pyautogui.screenshot(region=(8, 32, 50, 50))
-    im.save(file_name)
+    if file_name != None:
+        im.save(file_name)
     return im
 
 
@@ -627,7 +628,7 @@ def read_game_rules(big_blind = 200, debug = False):
             pyautogui.dragTo(x=dgrp[0], y=dgrp[1], duration=1.5, button='left')
             pyautogui.mouseUp()
             time.sleep(.5)
-            im = screenshot_area(point = (0, 100), size = [800, 530], file_name=f"game_screenshot.png")
+            im = screenshot_area(point = (0, 100), size = [800, 530], file_name=None)
             im = im.crop((3, 20, 35, 400))
             im2 = Image.open('images/en_juego_negro.png')
             if compare_PILs(im, im2):

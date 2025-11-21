@@ -13,37 +13,32 @@ import glob
 big_blind = 200
 
 
-remove_debug_imgs()
+# remove_debug_imgs()
 
 
 run_it_up(big_blind = big_blind)
 
 
-def read_times(areas, areas_count):
 
-    start = time.time()
-    print("hello")
-    end = time.time()
-    print('{:f}'.format(end - start))
-
+def read_D(areas, areas_count):
     secs = time.time()
 
     #in-game screenshot
     start = time.time()
-    im = screenshot_area(point = (0, 100), size = [800, 530], file_name=f"temp_screenshot_{str(secs).split(".")[0]}.png")
+    im = screenshot_area(point = (0, 100), size = [800, 530], file_name=f"screenshots/screenshot_{str(secs).split(".")[0]}.png")
     end = time.time()
     print('screenshot_area : {:f}'.format(end - start))
 
     start = time.time()
     area = imagesearcharea('images/D.png', 0, 100, 800, 530, precision=0.95, im = im) # read dealer position in area
     end = time.time()
-    print('imagesearcharea : {:f}'.format(end - start))
+    print('imagesearcharea (looking for D in im) : {:f}'.format(end - start))
 
 
-    start = time.time()
-    area = imagesearcharea('images/D.png', 0, 100, 800, 530, precision=0.95) # read dealer position in area
-    end = time.time()
-    print('imagesearcharea without image made before : {:f}'.format(end - start))
+    # start = time.time()
+    # area = imagesearcharea('images/D.png', 0, 100, 800, 530, precision=0.95) # read dealer position in area
+    # end = time.time()
+    # print('imagesearcharea without image made before : {:f}'.format(end - start))
 
     print("D - area: "+str(area))
     if area not in areas:
@@ -52,22 +47,8 @@ def read_times(areas, areas_count):
         print("areas_count = "+str(areas_count))
         areas.append(area)
 
-    start = time.time()
-    pix = pyautogui.pixel(area[0]+4, area[1]+4+100)
-    end = time.time()
-    print('getting pixel from screen directly: {:f}'.format(end - start))
-
-    print('pix: '+str(pix))
-
-    start = time.time()
     pixels = im.load()
-    end = time.time()
-    print('pixels = im.load(): {:f}'.format(end - start))
-
-    start = time.time()
-    pixel_value = pixels[area[0]+4, area[1]+4]
-    end = time.time()
-    print('getting pixel from image: {:f}'.format(end - start))
+    pixel_value = pixels[area[0], area[1]]
     # print('pixels shape: '+str(pixels.))
 
     print("pixel_value : "+str(pixel_value))
@@ -77,9 +58,7 @@ def read_times(areas, areas_count):
     #     time.sleep(2)
     # fold()
 
-    print('direct comparison: ')
-    print(pixels[200, 200])
-    print(pyautogui.pixel(200, 300))
+
     print('-----------------')
     print('another !')
 
@@ -90,8 +69,8 @@ def read_times(areas, areas_count):
 
 
 def ingame_loop():
-    # areas_count = 0
-    # areas = []
+    areas_count = 0
+    areas = []
     # pixel_value_0 = None
     # pixel_value_1 = None
     # pixel_value_2 = None
@@ -104,20 +83,21 @@ def ingame_loop():
         pyautogui.moveTo(1100, 950, duration=0.01)
         time.sleep(5)
         im = screenshot_area(point = (0, 100), size = [800, 530], file_name=f"game_screenshot.png")
+        areas, areas_count = read_D(areas, areas_count)
 
-        # Setting the points for cropped image
-        left = 3
-        top = 20
-        right = 35
-        bottom = 400
+        # # Setting the points for cropped image
+        # left = 3
+        # top = 20
+        # right = 35
+        # bottom = 400
 
-        # Cropped image of above dimension
-        # (It will not change original image)
-        im1 = im.crop((left, top, right, bottom))
+        # # Cropped image of above dimension
+        # # (It will not change original image)
+        # im1 = im.crop((left, top, right, bottom))
 
-        # Shows the image in image viewer
-        # im1.show()
-        im1.save("cropped_image.png")
+        # # Shows the image in image viewer
+        # # im1.show()
+        # im1.save("cropped_image.png")
 
 
         # pixels = im.load()

@@ -604,6 +604,7 @@ def read_game_rules(big_blind = 200, debug = False):
     click_ok(debug = False)  
 
     for _ in range(5):
+        time.sleep(1)
         game_rules_pos = imagesearch('images/game_rules_color.png', precision=0.8, calling_function="read_game_rules", debug=debug)
         print("Game Rules position: ", game_rules_pos)
         if game_rules_pos != [-1, -1]:

@@ -25,9 +25,9 @@ def read_D(areas, areas_count):
 
     #in-game screenshot
     start = time.time()
-    im = screenshot_area(point = (0, 100), size = [800, 530], file_name=f"screenshots/screenshot_{str(secs).split(".")[0]}.png")
+    im = screenshot_area(point = (0, 100), size = [800, 530], file_name=None)
     end = time.time()
-    print('screenshot_area : {:f}'.format(end - start))
+    print('screenshot_area no dave file: {:f}'.format(end - start))
 
     start = time.time()
     area = imagesearcharea('images/D.png', 0, 100, 800, 530, precision=0.95, im = im) # read dealer position in area
@@ -82,7 +82,7 @@ def ingame_loop():
     while True:
         pyautogui.moveTo(1100, 950, duration=0.01)
         time.sleep(5)
-        im = screenshot_area(point = (0, 100), size = [800, 530], file_name=f"game_screenshot.png")
+        # im = screenshot_area(point = (0, 100), size = [800, 530], file_name=None)
         areas, areas_count = read_D(areas, areas_count)
 
         # # Setting the points for cropped image

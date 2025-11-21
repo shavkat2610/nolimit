@@ -578,6 +578,19 @@ def screenshot_area(point = (50, 50), size = [250, 250], file_name = "temp.png")
 
 
 
+def compare_PILs(im, im2, max_ = 50, debug = True):
+    diff = ImageChops.difference(im, im2)
+    if diff.getbbox():
+        if debug:
+            print("images are different")
+            im.show()
+            im2.show()
+        return False
+    else:
+        return True
+
+
+
 
 dgrp = [468, 50] # default game region position
 def read_game_rules(big_blind = 200, debug = False):
@@ -601,7 +614,7 @@ def read_game_rules(big_blind = 200, debug = False):
 
     click_ok(debug = False)  
 
-    for _ in range(5):
+    for _ in range(10):
         time.sleep(2)
         game_rules_pos = imagesearch('images/game_rules_color.png', precision=0.8, calling_function="read_game_rules", debug=debug)
         print("Game Rules position: ", game_rules_pos)
@@ -617,15 +630,11 @@ def read_game_rules(big_blind = 200, debug = False):
             im = screenshot_area(point = (0, 100), size = [800, 530], file_name=f"game_screenshot.png")
             im = im.crop((3, 20, 35, 400))
             im2 = Image.open('images/en_juego_negro.png')
-            diff = ImageChops.difference(im, im2)
-
-            if diff.getbbox():
-                print("images are different")
-                im.show()
-                im2.show()
-            else:
+            if compare_PILs(im, im2):
                 return True
-    return False
+    print("could not properly place the gaming window to the top left corner, exiting ...")
+    exit()
+    # return False
 
 
 

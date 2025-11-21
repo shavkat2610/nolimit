@@ -3,7 +3,6 @@ import pyautogui
 import time
 import numpy as np
 import cv2
-from PIL import Image
 import random
 # from matplotlib.pyplot import imshow
 # import matplotlib
@@ -13,6 +12,8 @@ from matplotlib import pyplot as plt
 # import pyperclip
 import glob
 import pytesseract
+from PIL import Image
+from PIL import ImageChops
 
 
 
@@ -578,9 +579,6 @@ def screenshot_area(point = (50, 50), size = [250, 250], file_name = "temp.png")
 
 
 
-
-
-import pygetwindow
 dgrp = [468, 50] # default game region position
 def read_game_rules(big_blind = 200, debug = False):
     def click_selection_or_exit(big_blind=200):
@@ -618,8 +616,14 @@ def read_game_rules(big_blind = 200, debug = False):
             time.sleep(.5)
             im = screenshot_area(point = (0, 100), size = [800, 530], file_name=f"game_screenshot.png")
             im = im.crop((3, 20, 35, 400))
-            if compare_img_screenshot(im,(3, 120), max_ = 200, debug = True, debug_2 = True):
-                print("Game rules read successfully.")
+            im2 = Image.open('images/en_juego_negro.png')
+            diff = ImageChops.difference(im, im2)
+
+            if diff.getbbox():
+                print("images are different")
+                im.show()
+                im2.show()
+            else:
                 return True
     return False
 

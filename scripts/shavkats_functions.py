@@ -29,7 +29,7 @@ def remove_debug_imgs():
 
 
 # up to am max of 10
-def compare_img_screenshot(im,pos, max_ = 50, debug = True, debug_2 = True):
+def compare_img_screenshot(im,pos, max_ = 50, debug = True, debug_2 = False):
     # saving both if unsuccessful
     width, height = im.size
     secs = time.time()
@@ -616,18 +616,12 @@ def read_game_rules(big_blind = 200, debug = False):
             pyautogui.dragTo(x=dgrp[0], y=dgrp[1], duration=1.5, button='left')
             pyautogui.mouseUp()
             time.sleep(.5)
-            # im = screenshot_area(point = (0, 100), size = [800, 530], file_name=f"game_screenshot.png")
-            # # Setting the points for cropped image
-            # left = 3
-            # top = 20
-            # right = 35
-            # bottom = 400
-
-            # # Cropped image of above dimension
-            # # (It will not change original image)
-            # im1 = im.crop((3, 20, 35, 400))
-
-    return True
+            im = screenshot_area(point = (0, 100), size = [800, 530], file_name=f"game_screenshot.png")
+            im = im.crop((3, 20, 35, 400))
+            if compare_img_screenshot(im,(3, 120), max_ = 200, debug = True, debug_2 = True):
+                print("Game rules read successfully.")
+                return True
+    return False
 
 
 

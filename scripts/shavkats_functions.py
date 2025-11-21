@@ -87,7 +87,7 @@ def imagesearch(image_path, precision=0.9, debug = False, calling_function = Non
     #     plt.imshow(template, interpolation='nearest')
     #     plt.show()
     try:
-        coordinates = pyautogui.locate(template, img_rgb, confidence=0.999)
+        coordinates = pyautogui.locate(template, img_rgb, confidence=0.9)
         if debug:
             print('pyautogui located '+image_path+' - proceeding anyways with cv.matchTemplate')
         else:

@@ -215,7 +215,7 @@ def login(debug = False):
     else: 
         upper_corner_pos = [-1, -1]
         while upper_corner_pos == [-1, -1]:
-            upper_corner_pos = imagesearch('images/login_popup_upper_corner.png', precision=0.8, debug=True, calling_function= 'login')
+            upper_corner_pos = imagesearch('images/login_popup_upper_corner.png', precision=0.85, debug=True, calling_function= 'login')
             print("upper_corner position: ", upper_corner_pos)
 
     if upper_corner_pos != [-1, -1]:

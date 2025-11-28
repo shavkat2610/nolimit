@@ -13,3 +13,4 @@ secrets1/__pycache__
 temp*.png
 ./secrets1
 ./secrets1/*
+.DS_Store
